@@ -1,9 +1,6 @@
 package top.krasus1966.shop.domain;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -29,7 +26,7 @@ public class Admin extends Model<Admin> implements Serializable {
 
     private static final long serialVersionUID = 1927764030207768699L;
     @ApiModelProperty("id")
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     @ApiModelProperty("用户名")

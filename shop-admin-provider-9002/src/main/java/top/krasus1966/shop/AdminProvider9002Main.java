@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2020/7/22 21:34
  **/
 @SpringBootApplication
-public class AdminProviderApplication {
+public class AdminProvider9002Main{
     public static void main(String[] args) {
-        SpringApplication.run(AdminProviderApplication.class,args);
+        SpringApplication.run(AdminProvider9002Main.class,args);
     }
 }
