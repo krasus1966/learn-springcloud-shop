@@ -1,0 +1,46 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: shop-service-provider-eureka
+  datasource:
+    druid:
+      driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+      # driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:p6spy:mysql://localhost:3306/spring_shop?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      # url: jdbc:mysql://localhost:3306/spring_shop?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: 196610121
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+
+eureka:
+  client:
+    # 表示是否将自己注册进 EurekaServer 默认为 true
+    register-with-eureka: true
+    # 是否从 EurekaServer 抓取已有的注册信息，默认为 true，单节点无所谓，集群必须设置为 true 才能配合 ribbon 使用负载均衡
+    fetch-registry: true
+    service-url:
+      #      defaultZone: http://localhost:7001/eureka
+      defaultZone: http://localhost:9501/eureka
+  instance:
+    instance-id: brand-service-9001
+    prefer-ip-address: true
+    # Eureka客户端向服务器发送心跳的时间间隔，单位为秒，默认为30秒
+    lease-renewal-interval-in-seconds: 30
+    # Eureka服务端在受到最后一次心跳后等待时间上线，单位为秒，默认是90秒，超时将删除服务
+    lease-expiration-duration-in-seconds: 30
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: top.krasus1966.shop.domain
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+      logic-delete-field: del
