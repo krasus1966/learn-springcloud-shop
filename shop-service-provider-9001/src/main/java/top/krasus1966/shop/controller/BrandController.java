@@ -20,7 +20,7 @@ import java.util.List;
  * @date 2020/7/17 22:22
  **/
 @RestController
-@Api(tags = "商品品牌管理相关接口")
+@Api(value = "BrandController",tags = "商品品牌管理相关接口")
 @RequestMapping("/provider/admin/brand")
 public class BrandController {
 

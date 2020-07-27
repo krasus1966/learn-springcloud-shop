@@ -1,6 +1,7 @@
 package top.krasus1966.shop.controller;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import top.krasus1966.shop.domain.Admin;
 import top.krasus1966.shop.domain.vo.CommonResult;
@@ -21,18 +22,14 @@ public class AdminController {
     @Resource
     private AdminService adminService;
 
+    @ApiOperation(value = "toLogin",tags = "管理员登录接口")
     @PostMapping("/toLogin")
-    public CommonResult<Admin> toLogin(@RequestBody Admin admin, HttpSession httpSession){
+    public CommonResult<Admin> toLogin(@RequestBody Admin admin, HttpSession httpSession) {
         Admin user = adminService.toLogin(admin).getData();
-        if (null == user){
-            return CommonResult.parse(403,"登录失败");
+        if (null == user) {
+            return CommonResult.parse(403, "登录失败");
         }
-        httpSession.setAttribute("loginUser",user);
-        return CommonResult.parse(200,"登录成功");
-    }
-
-    @RequestMapping("/test")
-    public CommonResult test(@RequestParam("id")String id){
-        return adminService.pageNotFount(id);
+        httpSession.setAttribute("loginUser", user);
+        return CommonResult.parse(200, "登录成功");
     }
 }

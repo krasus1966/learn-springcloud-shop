@@ -1,9 +1,9 @@
 server:
-  port: 9001
+  port: 9002
 
 spring:
   application:
-    name: shop-service-provider-eureka
+    name: shop-admin-provider-eureka
   datasource:
     druid:
       driver-class-name: com.p6spy.engine.spy.P6SpyDriver
@@ -16,6 +16,8 @@ spring:
     restart:
       enabled: true
       additional-paths: src/main/java
+  jmx:
+    default-domain: admin-provider-9002
 
 eureka:
   client:
@@ -27,7 +29,7 @@ eureka:
       #      defaultZone: http://localhost:7001/eureka
       defaultZone: http://localhost:9501/eureka
   instance:
-    instance-id: brand-service-9001
+    instance-id: admin-service-9002
     prefer-ip-address: true
     # Eureka客户端向服务器发送心跳的时间间隔，单位为秒，默认为30秒
     lease-renewal-interval-in-seconds: 30

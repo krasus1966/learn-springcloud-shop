@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import top.krasus1966.shop.domain.Admin;
 import top.krasus1966.shop.domain.vo.CommonResult;
 
@@ -24,7 +23,4 @@ public interface AdminService {
     @ApiOperation(value = "请求登录信息")
     @PostMapping("/login")
     CommonResult<Admin> toLogin(@RequestBody Admin admin);
-
-    @PostMapping("/page_not_fount")
-    CommonResult pageNotFount(@RequestParam("id")String id);
 }

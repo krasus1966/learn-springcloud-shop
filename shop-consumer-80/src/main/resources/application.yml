@@ -11,6 +11,8 @@ spring:
       additional-paths: src/main/java
   thymeleaf:
     cache: false
+  jmx:
+    default-domain: consumer-80
 eureka:
   client:
     # 表示是否将自己注册进 EurekaServer 默认为 true

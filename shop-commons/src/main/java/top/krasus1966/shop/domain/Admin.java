@@ -7,7 +7,10 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -16,8 +19,11 @@ import java.io.Serializable;
  * @author Krasus1966
  * @date 2020/7/22 21:53
  **/
-@ApiModel("管理员实体")
+@ApiModel("管理员实体类")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 @TableName("tb_admin")
 public class Admin extends Model<Admin> implements Serializable {
 

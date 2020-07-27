@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -13,8 +16,11 @@ import java.io.Serializable;
  * @author Krasus1966
  * @date 2020/7/17 22:12
  **/
-@ApiModel(value = "品牌实体")
+@ApiModel(value = "品牌实体类")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 @TableName("tb_brand")
 public class Brand extends Model<Brand> implements Serializable {
 

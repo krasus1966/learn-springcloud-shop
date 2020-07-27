@@ -7,7 +7,7 @@ import top.krasus1966.shop.exception.ICustomizeErrorCode;
 import java.io.Serializable;
 
 /**
- * 通用数据传输DTO
+ * 通用数据展示层对象VO
  * @author Krasus1966
  * @date 2020/7/17 22:24
  **/
@@ -33,22 +33,22 @@ public class CommonResult<T> implements Serializable {
     }
 
     public static <T> CommonResult<T> parse(Integer code, String msg) {
-        return new CommonResult<T>(code, msg);
+        return new CommonResult<>(code, msg);
     }
 
     public static <T> CommonResult<T> parse(Integer code, String msg, T data) {
-        return new CommonResult<T>(code, msg, data);
+        return new CommonResult<>(code, msg, data);
     }
 
     public static <T> CommonResult<T> parse(ICustomizeEnum iCustomizeEnum) {
-        return new CommonResult<T>(iCustomizeEnum.getCode(), iCustomizeEnum.getMessage());
+        return new CommonResult<>(iCustomizeEnum.getCode(), iCustomizeEnum.getMessage());
     }
 
     public static <T> CommonResult<T> parse(ICustomizeEnum iCustomizeEnum, T data) {
-        return new CommonResult<T>(iCustomizeEnum.getCode(), iCustomizeEnum.getMessage(), data);
+        return new CommonResult<>(iCustomizeEnum.getCode(), iCustomizeEnum.getMessage(), data);
     }
 
     public static <T> CommonResult<T> parse(ICustomizeErrorCode iCustomizeErrorCode) {
-        return new CommonResult<T>(iCustomizeErrorCode.getCode(), iCustomizeErrorCode.getMessage());
+        return new CommonResult<>(iCustomizeErrorCode.getCode(), iCustomizeErrorCode.getMessage());
     }
 }
