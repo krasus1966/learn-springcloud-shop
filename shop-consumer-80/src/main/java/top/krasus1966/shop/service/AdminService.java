@@ -17,7 +17,7 @@ import top.krasus1966.shop.domain.vo.CommonResult;
  **/
 @Api(value = "Feign客户端-管理员接口")
 @Component
-@FeignClient("SHOP-ADMIN-PROVIDER-EUREKA")
+@FeignClient(value = "SHOP-ADMIN-PROVIDER-EUREKA")
 @RequestMapping("/provider/admin/")
 public interface AdminService {
 

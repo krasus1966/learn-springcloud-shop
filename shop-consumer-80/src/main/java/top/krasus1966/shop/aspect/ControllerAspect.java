@@ -50,6 +50,22 @@ public class ControllerAspect {
 
     @AfterThrowing(value = "pointCut()", throwing = "e")
     public void throwException(JoinPoint joinPoint, Exception e) {
-        log.error("");
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        HttpServletRequest request = attributes.getRequest();
+
+        //获取URL
+        log.info("url={}", request.getRequestURL());
+
+        //获取请求方法
+        log.info("method={}", request.getMethod());
+
+        //获取ip地址
+        log.info("ip={}", request.getRemoteAddr());
+
+        //获取类和方法
+        log.info("class_method={}", joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+
+        //获取错误信息
+        log.error("Exception={}",e.getMessage());
     }
 }

@@ -17,6 +17,7 @@ import java.io.Serializable;
 @TableName("tb_brand")
 public class Brand extends Model<Brand> implements Serializable {
 
+    private static final long serialVersionUID = 8621985266139394110L;
     @ApiModelProperty(value = "品牌id")
     @TableId(type = IdType.AUTO)
     private Long id;
