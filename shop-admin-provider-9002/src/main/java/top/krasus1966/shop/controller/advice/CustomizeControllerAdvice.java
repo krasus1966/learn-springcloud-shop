@@ -1,4 +1,4 @@
-package top.krasus1966.shop.controller;
+package top.krasus1966.shop.controller.advice;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

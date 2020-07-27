@@ -29,7 +29,7 @@ public class Admin extends Model<Admin> implements Serializable {
     @TableField
     private String username;
 
-    @ApiModelProperty(value = "密码",notes = "默认不会被查询")
+    @ApiModelProperty(value = "密码", notes = "默认不会被查询")
     @TableField(select = false)
     private String password;
 
