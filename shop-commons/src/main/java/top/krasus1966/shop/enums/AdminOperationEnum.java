@@ -3,6 +3,7 @@ package top.krasus1966.shop.enums;
 import lombok.Getter;
 
 /**
+ * 管理员操作Enum
  * @author Krasus1966
  * @date 2020/7/27 15:15
  **/

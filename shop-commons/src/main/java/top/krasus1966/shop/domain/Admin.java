@@ -12,6 +12,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
+ * 管理员DO
  * @author Krasus1966
  * @date 2020/7/22 21:53
  **/

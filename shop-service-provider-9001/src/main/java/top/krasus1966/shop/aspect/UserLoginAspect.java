@@ -21,6 +21,6 @@ public class UserLoginAspect {
 
     @Before("pointCut()")
     public void log(JoinPoint joinPoint){
-
+        //增加单点登录的判断登录条件
     }
 }

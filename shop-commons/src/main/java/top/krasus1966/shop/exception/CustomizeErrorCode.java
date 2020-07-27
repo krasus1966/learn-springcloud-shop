@@ -3,6 +3,7 @@ package top.krasus1966.shop.exception;
 import lombok.Getter;
 
 /**
+ * 通用异常处理 代码及信息
  * @author Krasus1966
  * @date 2020/7/27 15:09
  **/

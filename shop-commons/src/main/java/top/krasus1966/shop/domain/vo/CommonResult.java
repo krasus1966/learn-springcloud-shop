@@ -7,6 +7,7 @@ import top.krasus1966.shop.exception.ICustomizeErrorCode;
 import java.io.Serializable;
 
 /**
+ * 通用数据传输DTO
  * @author Krasus1966
  * @date 2020/7/17 22:24
  **/

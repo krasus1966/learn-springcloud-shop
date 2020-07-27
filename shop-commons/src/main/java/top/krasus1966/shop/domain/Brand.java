@@ -9,6 +9,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
+ * 品牌信息DO
  * @author Krasus1966
  * @date 2020/7/17 22:12
  **/

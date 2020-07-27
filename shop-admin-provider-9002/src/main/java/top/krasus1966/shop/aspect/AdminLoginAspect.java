@@ -24,6 +24,5 @@ public class AdminLoginAspect {
     @Before(value = "pointCut()")
     public void doBefore(JoinPoint joinPoint) {
 
-
     }
 }
