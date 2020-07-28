@@ -29,7 +29,6 @@ public class AdminLoginController {
     @Resource
     private AdminService adminService;
 
-
     @ApiOperation(value = "toLogin", tags = "管理员登录接口")
     @ApiImplicitParams({
             @ApiImplicitParam(value = "username", name = "用户名"),
@@ -38,7 +37,7 @@ public class AdminLoginController {
     @PostMapping("/login")
     public CommonResult<Admin> toLogin(@RequestBody Admin admin, HttpServletRequest request) {
         if (null == adminService.getOne(new QueryWrapper<>(admin))) {
-            return CommonResult.parse(AdminOperationEnum.ADMIN_LOGIN_WRONG);
+            return CommonResult.parse(AdminOperationEnum.ADMIN_LOGIN_ERROR);
         }
         new AdminLoginLog(null, request.getRemoteAddr(), admin.getUsername(), null, "").insert();
         return CommonResult.parse(AdminOperationEnum.ADMIN_LOGIN_RIGHT, admin.selectOne(new QueryWrapper<>(admin)));

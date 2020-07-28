@@ -47,10 +47,4 @@ public class ControllerAspect {
             log.info("args={}", joinPoint.getArgs());
         }
     }
-
-    @AfterThrowing(value = "pointCut()", throwing = "e")
-    public void throwException(JoinPoint joinPoint, Exception e) {
-        //获取错误信息
-        log.error("Exception={}",e.getMessage());
-    }
 }

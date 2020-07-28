@@ -1,5 +1,6 @@
 package top.krasus1966.shop.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -8,6 +9,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import top.krasus1966.shop.domain.Brand;
 import top.krasus1966.shop.domain.vo.CommonResult;
+import top.krasus1966.shop.fallback.CommonFallback;
+import top.krasus1966.shop.handler.CommonHander;
 import top.krasus1966.shop.service.BrandService;
 
 import javax.annotation.Resource;
@@ -42,6 +45,13 @@ public class BrandController {
 
     @ApiOperation("获取所有品牌")
     @GetMapping("/getAll")
+    @SentinelResource(value = "getAllBrand",
+            blockHandlerClass = CommonHander.class,
+            blockHandler = "commonHandlerException",
+            fallbackClass = CommonFallback.class,
+            fallback = "handlerFallback"
+            //需要忽略抛出的异常 请使用 exceptionsToIgnore = {需要忽略的异常类型}
+    )
     public CommonResult<List<Brand>> getAllBrand() {
         return brandService.getAllBrand();
     }

@@ -17,7 +17,7 @@ import top.krasus1966.shop.domain.vo.CommonResult;
 @Api(value = "Feign客户端-管理员接口")
 @Component
 @FeignClient(value = "shop-admin-provider")
-@RequestMapping("/provider/admin/")
+@RequestMapping("/provider/admin")
 public interface AdminService {
 
     @ApiOperation(value = "请求登录信息")
