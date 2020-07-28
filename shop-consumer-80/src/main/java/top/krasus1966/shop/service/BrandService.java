@@ -20,7 +20,7 @@ import java.util.List;
  **/
 @Api(value = "Feign客户端-品牌接口")
 @Component
-@FeignClient(value = "SHOP-SERVICE-PROVIDER-EUREKA")
+@FeignClient(value = "shop-service-provider")
 @RequestMapping("/provider/admin/brand")
 public interface BrandService {
 

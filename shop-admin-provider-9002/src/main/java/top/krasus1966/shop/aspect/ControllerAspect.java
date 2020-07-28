@@ -43,14 +43,12 @@ public class ControllerAspect {
         log.info("class_method={}", joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
 
         //获取参数
-        if (null != joinPoint.getArgs()) {
-            log.info("args={}", joinPoint.getArgs());
-        }
+        log.info("args={}", joinPoint.getArgs());
     }
 
     @AfterThrowing(value = "pointCut()", throwing = "e")
     public void throwException(JoinPoint joinPoint, Exception e) {
         //获取错误信息
-        log.error("Exception={}",e.getMessage());
+        log.error("Exception={}", e.getMessage());
     }
 }

@@ -1,6 +1,3 @@
-server:
-  port: 9001
-
 spring:
   application:
     name: shop-service-provider-eureka
