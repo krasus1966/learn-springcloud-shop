@@ -18,29 +18,29 @@ import java.util.List;
  * @author Krasus1966
  * @date 2020/7/19 11:16
  **/
-@Api(value = "Feign客户端-品牌接口")
+@Api(tags = "Feign客户端-品牌接口")
 @Component
 @FeignClient(value = "shop-service-provider")
 @RequestMapping("/provider/admin/brand")
 public interface BrandService {
 
-    @ApiOperation(value = "新增品牌")
+    @ApiOperation("新增品牌请求")
     @PostMapping("/insert")
     CommonResult<Brand> insertBrand(@RequestBody Brand brand);
 
-    @ApiOperation(value = "通过id删除品牌")
+    @ApiOperation("通过id删除品牌请求")
     @PostMapping("/delete")
-    CommonResult<Brand> deleteBrand(@RequestParam("id")Long id);
+    CommonResult<Brand> deleteBrand(@RequestParam("id") Long id);
 
-    @ApiOperation(value = "查询所有品牌")
+    @ApiOperation("查询所有品牌请求")
     @PostMapping("/getAll")
     CommonResult<List<Brand>> getAllBrand();
 
-    @ApiOperation(value = "分页查询品牌列表")
+    @ApiOperation("分页查询品牌列表请求")
     @PostMapping("/queryPage")
-    Page<Brand> queryPage( @RequestParam("current")Integer current, @RequestParam("size")Integer size);
+    Page<Brand> queryPage(@RequestParam("current") Integer current, @RequestParam("size") Integer size);
 
-    @ApiOperation(value = "通过id更新品牌")
+    @ApiOperation("通过id更新品牌请求")
     @PostMapping("/update")
     CommonResult<Brand> updateBrand(@RequestBody Brand brand);
 }

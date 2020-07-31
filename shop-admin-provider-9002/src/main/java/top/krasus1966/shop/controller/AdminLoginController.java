@@ -2,8 +2,6 @@ package top.krasus1966.shop.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,18 +20,18 @@ import javax.servlet.http.HttpServletRequest;
  * @author Krasus1966
  * @date 2020/7/22 22:03
  **/
-@Api(value = "AdminController", tags = "管理员登录相关接口")
+@Api(tags = "管理员登录相关接口")
 @RestController
 @RequestMapping("/provider/admin")
 public class AdminLoginController {
     @Resource
     private AdminService adminService;
 
-    @ApiOperation(value = "toLogin", tags = "管理员登录接口")
-    @ApiImplicitParams({
-            @ApiImplicitParam(value = "username", name = "用户名"),
-            @ApiImplicitParam(value = "password", name = "密码"),
-    })
+    @ApiOperation("管理员登录接口")
+//    @ApiImplicitParams({
+//            @ApiImplicitParam(value = "用户名", name = "username"),
+//            @ApiImplicitParam(value = "密码", name = "password")
+//    })
     @PostMapping("/login")
     public CommonResult<Admin> toLogin(@RequestBody Admin admin, HttpServletRequest request) {
         if (null == adminService.getOne(new QueryWrapper<>(admin))) {

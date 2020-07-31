@@ -29,6 +29,11 @@ public class BrandController {
     protected BrandService brandService;
 
     @ApiOperation("增加品牌")
+    @ApiImplicitParams({
+            @ApiImplicitParam(value = "品牌名", name = "name"),
+            @ApiImplicitParam(value = "品牌图片", name = "image"),
+            @ApiImplicitParam(value = "品牌首字母", name = "firstChar")
+    })
     @GetMapping("/insert")
     public CommonResult<Brand> insertBrand(Brand brand) {
         return brandService.insertBrand(brand);
@@ -44,7 +49,7 @@ public class BrandController {
     }
 
     @ApiOperation("获取所有品牌")
-    @GetMapping("/getAll")
+    @GetMapping(value = "/getAll")
     @SentinelResource(value = "getAllBrand",
             blockHandlerClass = CommonHander.class,
             blockHandler = "commonHandlerException",
@@ -58,11 +63,11 @@ public class BrandController {
 
     @ApiOperation("分页查询品牌")
     @ApiImplicitParams({
-            @ApiImplicitParam(value = "品牌信息",name = "brand"),
+//            @ApiImplicitParam(value = "品牌实体类",name = "brand"),
             @ApiImplicitParam(value = "页码",name = "current"),
             @ApiImplicitParam(value = "每页条数",name = "size")
     })
-    @GetMapping("/queryPage")
+    @GetMapping(value = "/queryPage")
     public Page<Brand> queryPage(@RequestParam("current")Integer current, @RequestParam("size")Integer size){
         return brandService.queryPage(current,size);
     }
@@ -74,7 +79,7 @@ public class BrandController {
             @ApiImplicitParam(name = "image",value = "品牌图片"),
             @ApiImplicitParam(name = "firstChar",value = "品牌大写首字母"),
     })
-    @PostMapping("/update")
+    @PostMapping(value = "/update")
     public CommonResult<Brand> updateBrand(Brand brand){
         return brandService.updateBrand(brand);
     }

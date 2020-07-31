@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
  * @author Krasus1966
  * @date 2020/7/27 21:08
  **/
-@ApiModel(value = "用户登录日志实体类")
+@ApiModel(description = "用户登录日志实体类")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

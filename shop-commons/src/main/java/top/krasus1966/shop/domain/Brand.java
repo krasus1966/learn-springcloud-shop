@@ -11,12 +11,14 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+import static io.swagger.annotations.ApiModelProperty.AccessMode.READ_ONLY;
+
 /**
  * 品牌信息DO
  * @author Krasus1966
  * @date 2020/7/17 22:12
  **/
-@ApiModel(value = "品牌实体类")
+@ApiModel(description = "品牌实体类")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,23 +27,24 @@ import java.io.Serializable;
 public class Brand extends Model<Brand> implements Serializable {
 
     private static final long serialVersionUID = 8621985266139394110L;
-    @ApiModelProperty(value = "品牌id")
+    @ApiModelProperty("品牌id")
     @TableId(type = IdType.AUTO)
     private Long id;
 
-    @ApiModelProperty(value = "品牌名")
+    @ApiModelProperty("品牌名")
     @TableField("name")
     private String name;
 
-    @ApiModelProperty(value = "品牌图片")
+    @ApiModelProperty("品牌图片")
     @TableField("image")
     private String image;
 
-    @ApiModelProperty(value = "品牌首字母")
+    @ApiModelProperty("品牌首字母")
     @TableField("first_char")
     private String firstChar;
 
-    @ApiModelProperty(value = "逻辑删除标识")
+    @ApiModelProperty(accessMode = READ_ONLY)
     @TableLogic
+    @TableField(select = false)
     private Integer del;
 }

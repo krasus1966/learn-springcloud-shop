@@ -11,12 +11,14 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+import static io.swagger.annotations.ApiModelProperty.AccessMode.READ_ONLY;
+
 /**
  * 管理员DO
  * @author Krasus1966
  * @date 2020/7/22 21:53
  **/
-@ApiModel("管理员实体类")
+@ApiModel(description = "管理员实体类")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,7 +27,7 @@ import java.io.Serializable;
 public class Admin extends Model<Admin> implements Serializable {
 
     private static final long serialVersionUID = 1927764030207768699L;
-    @ApiModelProperty("id")
+    @ApiModelProperty("用户id")
     @TableId(type = IdType.AUTO)
     private Long id;
 
@@ -45,7 +47,8 @@ public class Admin extends Model<Admin> implements Serializable {
     @TableField
     private String photo;
 
-    @ApiModelProperty("用户名")
+    @ApiModelProperty(accessMode = READ_ONLY)
     @TableLogic
+    @TableField(select = false)
     private Integer del;
 }

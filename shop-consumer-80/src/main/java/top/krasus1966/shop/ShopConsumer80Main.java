@@ -11,9 +11,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
  **/
 @SpringBootApplication
 //@EnableEurekaClient
-@EnableFeignClients
-//@EnableSwagger2
 @EnableDiscoveryClient
+@EnableFeignClients
 public class ShopConsumer80Main {
     public static void main(String[] args) {
         SpringApplication.run(ShopConsumer80Main.class, args);

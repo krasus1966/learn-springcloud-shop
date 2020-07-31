@@ -25,9 +25,8 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.any())
                 .build().pathMapping("/")
                 .apiInfo(new ApiInfoBuilder()
-                        .title("基于SpringCloud的商城系统-服务端")
-                        .description("使用SpringCloud框架开发的微服务商城-服务端")
-                        .version("0.0.1-SNAPSHOT")
+                        .title("基于SpringCloud的商城系统-管理员服务端")
+                        .description("使用SpringCloud框架开发的微服务商城-管理员服务端")
                         .build());
     }
 }

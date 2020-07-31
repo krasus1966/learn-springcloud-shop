@@ -6,7 +6,6 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 //@EnableEurekaClient
-//@EnableSwagger2
 @EnableDiscoveryClient //使用Nacos时使用此注解
 public class ShopProvider9001Main {
 

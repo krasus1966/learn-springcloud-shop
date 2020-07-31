@@ -14,13 +14,13 @@ import top.krasus1966.shop.domain.vo.CommonResult;
  * @author Krasus1966
  * @date 2020/7/22 22:15
  **/
-@Api(value = "Feign客户端-管理员接口")
+@Api(tags = "Feign客户端-管理员接口")
 @Component
 @FeignClient(value = "shop-admin-provider")
 @RequestMapping("/provider/admin")
 public interface AdminService {
 
-    @ApiOperation(value = "请求登录信息")
+    @ApiOperation("请求登录信息")
     @PostMapping("/login")
     CommonResult<Admin> toLogin(@RequestBody Admin admin);
 }
