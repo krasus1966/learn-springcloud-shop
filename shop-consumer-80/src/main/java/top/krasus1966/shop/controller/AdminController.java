@@ -42,6 +42,6 @@ public class AdminController {
             return CommonResult.parse(403, "登录失败");
         }
         httpSession.setAttribute("loginUser", user);
-        return CommonResult.parse(200, "登录成功",user);
+        return CommonResult.parse(200, "登录成功", user);
     }
 }

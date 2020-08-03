@@ -13,6 +13,7 @@
         <module>shop-server-eureka-9501</module>
         <module>shop-service-provider-9001</module>
         <module>shop-admin-provider-9002</module>
+        <module>shop-service-webflux-9500</module>
     </modules>
     <name>shop</name>
     <description>通过学习SpringCloud，编写第一个基于SpringCloud的应用</description>

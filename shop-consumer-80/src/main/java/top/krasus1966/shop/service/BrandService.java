@@ -15,6 +15,7 @@ import top.krasus1966.shop.domain.vo.CommonResult;
 import java.util.List;
 
 /**
+ * Feign客户端，与服务端-品牌服务进行交互
  * @author Krasus1966
  * @date 2020/7/19 11:16
  **/

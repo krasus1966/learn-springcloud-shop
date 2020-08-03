@@ -8,6 +8,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 /**
+ * 用户登录切面，暂无用途
  * @author Krasus1966
  * @date 2020/7/26 17:46
  **/

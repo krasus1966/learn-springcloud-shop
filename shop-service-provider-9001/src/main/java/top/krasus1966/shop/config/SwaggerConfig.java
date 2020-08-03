@@ -10,6 +10,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 /**
+ * Swagger2 配置类
  * @author Krasus1966
  * @date 2020/7/21 20:49
  **/

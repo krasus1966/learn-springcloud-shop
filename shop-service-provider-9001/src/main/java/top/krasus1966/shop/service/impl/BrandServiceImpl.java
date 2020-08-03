@@ -7,6 +7,7 @@ import top.krasus1966.shop.domain.Brand;
 import top.krasus1966.shop.service.BrandService;
 
 /**
+ * 品牌相关Service
  * @author Krasus1966
  * @date 2020/7/17 22:17
  **/

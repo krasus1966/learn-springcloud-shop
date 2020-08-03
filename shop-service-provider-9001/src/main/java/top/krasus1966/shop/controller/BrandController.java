@@ -16,6 +16,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
+ * 品牌Controller
  * @author Krasus1966
  * @date 2020/7/17 22:22
  **/

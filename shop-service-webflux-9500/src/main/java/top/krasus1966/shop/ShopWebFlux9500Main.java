@@ -5,15 +5,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
- * 管理端启动类
+ * WebFlux模块启动类，此模块暂无用途
  * @author Krasus1966
- * @date 2020/7/22 21:34
+ * @date 2020/8/3 21:56
  **/
 @SpringBootApplication
-//@EnableEurekaClient
 @EnableDiscoveryClient
-public class AdminProvider9002Main{
+public class ShopWebFlux9500Main {
     public static void main(String[] args) {
-        SpringApplication.run(AdminProvider9002Main.class,args);
+        SpringApplication.run(ShopWebFlux9500Main.class,args);
     }
 }
