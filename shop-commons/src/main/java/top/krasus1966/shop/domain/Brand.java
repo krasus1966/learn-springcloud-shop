@@ -24,25 +24,41 @@ import static io.swagger.annotations.ApiModelProperty.AccessMode.READ_ONLY;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @TableName("tb_brand")
-public class Brand extends Model<Brand> implements Serializable {
+public class Brand extends Model<Brand>  implements Serializable {
 
     private static final long serialVersionUID = 8621985266139394110L;
+
+    /**
+     * 品牌id
+     */
     @ApiModelProperty("品牌id")
     @TableId(type = IdType.AUTO)
     private Long id;
 
+    /**
+     * 品牌名
+     */
     @ApiModelProperty("品牌名")
     @TableField("name")
     private String name;
 
+    /**
+     * 品牌图片
+     */
     @ApiModelProperty("品牌图片")
     @TableField("image")
     private String image;
 
+    /**
+     * 品牌首字母
+     */
     @ApiModelProperty("品牌首字母")
     @TableField("first_char")
     private String firstChar;
 
+    /**
+     * 逻辑删除标识
+     */
     @ApiModelProperty(accessMode = READ_ONLY)
     @TableLogic
     @TableField(select = false)

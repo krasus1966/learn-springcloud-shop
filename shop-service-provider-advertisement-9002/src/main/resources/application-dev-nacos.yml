@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: shop-service-provider-advertisement
+  datasource:
+    druid:
+      driver-class-name: com.p6spy.engine.spy.P6SpyDriver
+      # driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:p6spy:mysql://localhost:3306/spring_shop?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      # url: jdbc:mysql://localhost:3306/spring_shop?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: 196610121
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+  jmx:
+    default-domain: shop-service-provider-advertisement-9002
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 # nacos地址
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: top.krasus1966.shop.domain
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+      logic-delete-field: del

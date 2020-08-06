@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    #    active: dev-eureka
+    active: dev-nacos
+server:
+  port: 9002

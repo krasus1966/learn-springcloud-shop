@@ -1,0 +1,23 @@
+server:
+  port: 9101
+
+spring:
+  application:
+    name: shop-service-provider-admin
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/spring_shop?useUnicode=true&characterEncoding=utf-8&useSSL=false
+      username: root
+      password: 196610121
+  jmx:
+    default-domain: shop-service-provider-admin-9101
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: top.krasus1966.shop.domain
+  global-config:
+    db-config:
+      logic-not-delete-value: 0
+      logic-delete-value: 1
+      logic-delete-field: del

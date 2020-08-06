@@ -16,12 +16,13 @@ import java.util.List;
 
 /**
  * Feign客户端，与服务端-品牌服务进行交互
+ *
  * @author Krasus1966
  * @date 2020/7/19 11:16
  **/
 @Api(tags = "Feign客户端-品牌接口")
 @Component
-@FeignClient(value = "shop-service-provider")
+@FeignClient(value = "shop-service-provider-brand")
 @RequestMapping("/provider/admin/brand")
 public interface BrandService {
 
