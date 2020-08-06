@@ -2,21 +2,39 @@ package top.krasus1966.shop.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import top.krasus1966.shop.exception.ICustomizeErrorCode;
 
 /**
+ * 通用返回值
+ *
  * @author Krasus1966
- * @date 2020/7/28 21:38
+ * @date 2020/8/6 22:31
  **/
 @Getter
 @AllArgsConstructor
-public enum  CommonEnum implements ICustomizeErrorCode {
-    //服务器降级（限流）
-    BLOCK_EXCEPTION_ERROR(5000,"服务器被限流"),
-    //服务器降级（出现错误）
-    FALL_BACK_ERROR(5001,"服务出现致命错误")
+public enum CommonEnum implements ICustomizeEnum {
+    /**
+     * 查询返回值
+     */
+    QUERY_OK(10000, "查询成功"),
+    QUERY_ERR(13001, "查询失败"),
+    /**
+     * 新增返回值
+     */
+    INSERT_OK(10000,"新增成功"),
+    INSERT_ERR(13002,"新增失败"),
+    /**
+     * 删除返回值
+     */
+    DELETE_OK(10000,"删除成功"),
+    DELETE_ERR(13003,"删除成功"),
+    /**
+     * 更新返回值
+     */
+    UPDATE_OK(10000,"更新成功"),
+    UPDATE_ERR(13004,"更新失败"),
     ;
 
-    private Integer code;
-    private String message;
+
+    private final Integer code;
+    private final String message;
 }

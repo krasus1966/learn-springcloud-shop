@@ -1,7 +1,7 @@
 package top.krasus1966.shop.fallback;
 
 import top.krasus1966.shop.domain.vo.CommonResult;
-import top.krasus1966.shop.enums.CommonEnum;
+import top.krasus1966.shop.enums.CommonErrorEnum;
 
 /**
  * @author Krasus1966
@@ -11,6 +11,6 @@ public class CommonFallback {
 
     public CommonResult<String> handlerFallback(Throwable e){
 
-        return CommonResult.parse(CommonEnum.FALL_BACK_ERROR,e.getMessage());
+        return CommonResult.parse(CommonErrorEnum.FALL_BACK_ERROR,e.getMessage());
     }
 }

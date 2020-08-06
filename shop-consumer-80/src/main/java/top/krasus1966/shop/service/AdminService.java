@@ -11,7 +11,8 @@ import top.krasus1966.shop.domain.Admin;
 import top.krasus1966.shop.domain.vo.CommonResult;
 
 /**
- * Feign客户端，与管理端交互
+ * Feign客户端-与管理端交互
+ *
  * @author Krasus1966
  * @date 2020/7/22 22:15
  **/
@@ -21,6 +22,12 @@ import top.krasus1966.shop.domain.vo.CommonResult;
 @RequestMapping("/provider/admin")
 public interface AdminService {
 
+    /**
+     * 发送登录请求
+     *
+     * @param admin 管理员用户名与密码
+     * @return {code,msg,data}
+     */
     @ApiOperation("请求登录信息")
     @PostMapping("/login")
     CommonResult<Admin> toLogin(@RequestBody Admin admin);

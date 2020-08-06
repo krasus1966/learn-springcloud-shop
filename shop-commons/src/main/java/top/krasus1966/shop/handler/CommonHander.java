@@ -3,7 +3,7 @@ package top.krasus1966.shop.handler;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import lombok.extern.slf4j.Slf4j;
 import top.krasus1966.shop.domain.vo.CommonResult;
-import top.krasus1966.shop.enums.CommonEnum;
+import top.krasus1966.shop.enums.CommonErrorEnum;
 
 /**
  * @author Krasus1966
@@ -14,6 +14,6 @@ public class CommonHander {
 
     public static CommonResult<BlockException> commonHandlerException(BlockException blockException) {
         log.error("出现限流错误={}",blockException.getMessage());
-        return CommonResult.parse(CommonEnum.BLOCK_EXCEPTION_ERROR);
+        return CommonResult.parse(CommonErrorEnum.BLOCK_EXCEPTION_ERROR);
     }
 }

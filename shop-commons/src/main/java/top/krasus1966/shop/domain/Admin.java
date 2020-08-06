@@ -2,6 +2,7 @@ package top.krasus1966.shop.domain;
 
 import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -50,5 +51,6 @@ public class Admin extends Model<Admin> implements Serializable {
     @ApiModelProperty(accessMode = READ_ONLY)
     @TableLogic
     @TableField(select = false)
+    @JsonIgnore
     private Integer del;
 }
