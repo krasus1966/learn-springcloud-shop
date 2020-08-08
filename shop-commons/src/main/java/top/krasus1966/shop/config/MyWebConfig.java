@@ -6,6 +6,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import top.krasus1966.shop.interceptor.NotFountInterceptor;
 
 /**
+ * 拦截器配置
+ *
  * @author Krasus1966
  * @date 2020/8/8 21:55
  **/
