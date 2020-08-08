@@ -22,12 +22,20 @@ public class BrandPageController {
     @Resource
     protected BrandService brandService;
 
+    /**
+     * 品牌页跳转
+     *
+     * @param current 页码
+     * @param size 每页条数
+     * @param modelMap 存储模型
+     * @return 品牌页 {page}
+     */
     @ApiOperation("品牌页")
     @GetMapping("/page_brand")
-    public String brandPage(@RequestParam(value = "current",defaultValue = "1")Integer current,
-                            @RequestParam(value = "size",defaultValue = "10")Integer size, ModelMap modelMap){
-       Page<Brand> page =  brandService.queryPage(current,size);
-       modelMap.addAttribute("page",page);
-       return "admin/brand";
+    public String brandPage(@RequestParam(value = "current", defaultValue = "1") Integer current,
+                            @RequestParam(value = "size", defaultValue = "10") Integer size, ModelMap modelMap) {
+        Page<Brand> page = brandService.queryPage(current, size);
+        modelMap.addAttribute("page", page);
+        return "admin/brand";
     }
 }

@@ -28,7 +28,7 @@ public interface AdminService {
      * @param admin 管理员用户名与密码
      * @return {code,msg,data}
      */
-    @ApiOperation("请求登录信息")
+    @ApiOperation("发送登录请求")
     @PostMapping("/login")
     CommonResult<Admin> toLogin(@RequestBody Admin admin);
 }

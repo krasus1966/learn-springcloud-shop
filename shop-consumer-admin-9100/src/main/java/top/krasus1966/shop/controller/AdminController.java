@@ -29,6 +29,12 @@ public class AdminController {
     @Resource
     private AdminService adminService;
 
+    /**
+     * 发送登录请求
+     *
+     * @param admin 管理员用户名与密码
+     * @return {code,msg,data}
+     */
     @ApiOperation("管理员登录接口")
     @PostMapping(value = "/toLogin")
     @SentinelResource(value = "toLogin",
@@ -44,7 +50,7 @@ public class AdminController {
         if (null == user) {
             return CommonResult.parse(AdminOperationEnum.ADMIN_LOGIN_ERROR);
         }
-        if (user.getStatus()==1){
+        if (user.getStatus() == 1) {
             return CommonResult.parse(AdminOperationEnum.ADMIN_LOCKDOWN);
         }
         httpSession.setAttribute("loginUser", user);

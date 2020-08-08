@@ -9,7 +9,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>shop-commons</module>
-        <module>shop-consumer-80</module>
+        <module>shop-consumer-admin-9100</module>
         <module>shop-server-eureka-9501</module>
         <module>shop-service-provider-brand-9001</module>
         <module>shop-service-provider-admin-9101</module>

@@ -27,6 +27,12 @@ public class AdminLoginController {
     @Resource
     private AdminService adminService;
 
+    /**
+     * 发送登录请求
+     *
+     * @param admin 管理员用户名与密码
+     * @return {code,msg,data}
+     */
     @ApiOperation("管理员登录接口")
 //    @ApiImplicitParams({
 //            @ApiImplicitParam(value = "用户名", name = "username"),
