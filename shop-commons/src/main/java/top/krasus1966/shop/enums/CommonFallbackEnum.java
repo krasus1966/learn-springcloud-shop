@@ -12,7 +12,7 @@ import top.krasus1966.shop.exception.ICustomizeErrorCode;
  **/
 @Getter
 @AllArgsConstructor
-public enum CommonErrorEnum implements ICustomizeErrorCode {
+public enum CommonFallbackEnum implements ICustomizeErrorCode {
     /**
      * 服务器降级（限流）
      */
