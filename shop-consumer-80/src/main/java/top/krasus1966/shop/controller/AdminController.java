@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.krasus1966.shop.domain.Admin;
 import top.krasus1966.shop.domain.vo.CommonResult;
+import top.krasus1966.shop.enums.AdminOperationEnum;
+import top.krasus1966.shop.exception.CustomizeException;
 import top.krasus1966.shop.fallback.CommonFallback;
 import top.krasus1966.shop.handler.CommonHander;
 import top.krasus1966.shop.service.AdminService;
@@ -33,15 +35,19 @@ public class AdminController {
             blockHandlerClass = CommonHander.class,
             blockHandler = "commonHandlerException",
             fallbackClass = CommonFallback.class,
-            fallback = "handlerFallback"
+            fallback = "handlerFallback",
+            exceptionsToIgnore = {CustomizeException.class}
             //需要忽略抛出的异常 请使用 exceptionsToIgnore = {需要忽略的异常类型}
     )
     public CommonResult<Admin> toLogin(Admin admin, HttpSession httpSession) {
         Admin user = adminService.toLogin(admin).getData();
         if (null == user) {
-            return CommonResult.parse(403, "登录失败");
+            return CommonResult.parse(AdminOperationEnum.ADMIN_LOGIN_ERROR);
+        }
+        if (user.getStatus()==1){
+            return CommonResult.parse(AdminOperationEnum.ADMIN_LOCKDOWN);
         }
         httpSession.setAttribute("loginUser", user);
-        return CommonResult.parse(200, "登录成功", user);
+        return CommonResult.parse(AdminOperationEnum.ADMIN_LOGIN_RIGHT, user);
     }
 }

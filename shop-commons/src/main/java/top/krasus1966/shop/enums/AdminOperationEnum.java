@@ -13,13 +13,19 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum AdminOperationEnum implements ICustomizeEnum {
     /**
-     * 管理员用户登录信息
+     * 管理员用户登录失败
      */
-    ADMIN_LOGIN_ERROR(4001, "用户名或密码不正确"),
+    ADMIN_LOGIN_ERROR(11001, "用户名或密码不正确"),
     /**
      * 管理员用户登录成功
      */
-    ADMIN_LOGIN_RIGHT(2001, "登陆成功");
+    ADMIN_LOGIN_RIGHT(10000, "登陆成功"),
+    /**
+     * 管理员状态为禁用
+     */
+    ADMIN_LOCKDOWN(11002,"用户已被禁用，请联系超级管理员"),
+
+    ;
 
 
     private final Integer code;

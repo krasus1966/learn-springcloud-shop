@@ -23,7 +23,7 @@ public class BrandPageController {
     protected BrandService brandService;
 
     @ApiOperation("品牌页")
-    @GetMapping("/brand")
+    @GetMapping("/page_brand")
     public String brandPage(@RequestParam(value = "current",defaultValue = "1")Integer current,
                             @RequestParam(value = "size",defaultValue = "10")Integer size, ModelMap modelMap){
        Page<Brand> page =  brandService.queryPage(current,size);

@@ -11,6 +11,7 @@ spring:
         port: 8179
   jmx:
     default-domain: shop-consumer
+
 ribbon:
   # 建立连接后从服务器读取到可用资源所用的时间
   ReadTimeout: 5000

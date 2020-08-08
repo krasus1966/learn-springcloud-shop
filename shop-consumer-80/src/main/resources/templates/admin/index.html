@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport"
@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="../media/css/app.css" media="all">
     <link rel="stylesheet" href="../media/css/font-awesome.min.css">
     <style type="text/css">
-        iframe{
+        iframe {
             width: 98%;
             height: 98%;
         }
-        .layui-tab-item{
+
+        .layui-tab-item {
             height: 98%;
         }
     </style>
@@ -29,31 +30,32 @@
 
         <!-- 头部区域（可配合layui已有的水平导航） -->
         <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item kit-side-fold" lay-unselect >
+            <li class="layui-nav-item kit-side-fold" lay-unselect>
                 <a href="javascript:flexible();" title="侧边伸缩">
                     <i class="layui-icon layui-icon-shrink-right" id="LAY_flexible"></i>
                 </a>
 
             </li>
             <li class="layui-nav-item" lay-unselect>
-                <a href="index.html" layadmin-event="refresh" title="刷新">
+                <a href="/page_index" layadmin-event="refresh" title="刷新">
                     <i class="layui-icon layui-icon-refresh-3"></i>
                 </a>
             </li>
         </ul>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item" style="margin-right: 20px">
-                <a href="javascript:showTab(1001,'processlist.html','待办事项');">待办事项<span class="layui-badge">99+</span></a>
+                <a href="javascript:showTab(1001,'/page_processlist','待办事项');">待办事项<span
+                        class="layui-badge">99+</span></a>
             </li>
             <li class="layui-nav-item">
                 <a href="javascript:;">
                     <img src="../media/images/qf_logo.png" class="layui-nav-img">
-                    Bruce
+                    <span th:text="${session.loginUser.username}"></span>
                 </a>
                 <dl class="layui-nav-child">
-                    <dd><a href="javascript:showTab(1001,'userInfo.html','我的信息');">我的信息</a></dd>
-                    <dd><a href="javascript:showTab(1001,'photo.html','更改头像');">更改头像</a></dd>
-                    <dd><a href="javascript:showTab(1002,'password.html','修改密码');">修改密码</a></dd>
+                    <dd><a href="javascript:showTab(1001,'/page_userInfo','我的信息');">我的信息</a></dd>
+                    <dd><a href="javascript:showTab(1001,'/page_photo','更改头像');">更改头像</a></dd>
+                    <dd><a href="javascript:showTab(1002,'/page_password','修改密码');">修改密码</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item"><a href="userloginout.do">注销</a></li>
@@ -63,35 +65,44 @@
     <div class="layui-side layui-bg-black ">
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
-            <ul class="layui-nav layui-nav-tree"  lay-shrink="all" id="lm">
-               <li class="layui-nav-item">
-			     <a href="javascript:;" id="1"><i class="layui-icon layui-icon-app"></i>&nbsp;商家管理</a>
-			      <dl class="layui-nav-child">
-			      	  <dd><a href="javascript:;" id="2" onclick="showTab(1,'seller_1.html','商家审核')">&nbsp;&nbsp;&nbsp;&nbsp;商家审核</a></dd>
-			      	  <dd><a href="javascript:;" id="2" onclick="showTab(2,'seller.html','商家管理')">&nbsp;&nbsp;&nbsp;&nbsp;商家管理</a></dd>
-			      </dl>
-			    </li>
-			    <li class="layui-nav-item">
-			     <a href="javascript:;" id="1"><i class="fa fa-shield"></i>&nbsp;&nbsp;商品管理</a>
-			      <dl class="layui-nav-child">
-			      	  <dd><a href="javascript:;" id="2" onclick="showTab(1,'brand.html','品牌管理')">&nbsp;&nbsp;&nbsp;&nbsp;品牌管理</a></dd>
-			      	  <dd><a href="javascript:;" id="2" onclick="showTab(1,'specification.html','规格管理')">&nbsp;&nbsp;&nbsp;&nbsp;规格管理</a></dd>
-			      	  <dd><a href="javascript:;" id="2" onclick="showTab(1,'type_template.html','模板管理')">&nbsp;&nbsp;&nbsp;&nbsp;模板管理</a></dd>
-			      	  <dd><a href="javascript:;" id="2" onclick="showTab(1,'item_cat.html','分类管理')">&nbsp;&nbsp;&nbsp;&nbsp;分类管理</a></dd>
-			      	  <dd><a href="javascript:;" id="2" onclick="showTab(1,'goods.html','商品审核')">&nbsp;&nbsp;&nbsp;&nbsp;商品审核</a></dd>
-			      </dl>
-			    </li>
-			    <li class="layui-nav-item">
-			     <a href="javascript:;" id="1"><i class="fa fa-sitemap"></i>&nbsp;广告管理</a>
-			      <dl class="layui-nav-child">
-			      	  <dd><a href="javascript:;" id="2" onclick="showTab(1,'content_category.html','广告类型管理')">&nbsp;&nbsp;&nbsp;&nbsp;广告类型管理</a></dd>
-			      	  <dd><a href="javascript:;" id="2" onclick="showTab(1,'content.html','')">&nbsp;&nbsp;&nbsp;&nbsp;广告管理</a></dd>
-			      </dl>
-			    </li>
+            <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="lm">
+                <li class="layui-nav-item">
+                    <a href="javascript:;" id="1"><i class="layui-icon layui-icon-app"></i>&nbsp;商家管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" id="2" onclick="showTab(1,'/page_seller_1','商家审核')">&nbsp;&nbsp;&nbsp;&nbsp;商家审核</a>
+                        </dd>
+                        <dd><a href="javascript:;" id="2" onclick="showTab(2,'/page_seller','商家管理')">&nbsp;&nbsp;&nbsp;&nbsp;商家管理</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;" id="1"><i class="fa fa-shield"></i>&nbsp;&nbsp;商品管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" id="2" onclick="showTab(1,'/page_brand','品牌管理')">&nbsp;&nbsp;&nbsp;&nbsp;品牌管理</a>
+                        </dd>
+                        <dd><a href="javascript:;" id="2" onclick="showTab(1,'/page_specification','规格管理')">&nbsp;&nbsp;&nbsp;&nbsp;规格管理</a>
+                        </dd>
+                        <dd><a href="javascript:;" id="2" onclick="showTab(1,'/page_type_template','模板管理')">&nbsp;&nbsp;&nbsp;&nbsp;模板管理</a>
+                        </dd>
+                        <dd><a href="javascript:;" id="2" onclick="showTab(1,'/page_item_cat','分类管理')">&nbsp;&nbsp;&nbsp;&nbsp;分类管理</a>
+                        </dd>
+                        <dd><a href="javascript:;" id="2" onclick="showTab(1,'/page_goods','商品审核')">&nbsp;&nbsp;&nbsp;&nbsp;商品审核</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;" id="1"><i class="fa fa-sitemap"></i>&nbsp;广告管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;" id="2" onclick="showTab(1,'/page_content_category','广告类型管理')">&nbsp;&nbsp;&nbsp;&nbsp;广告类型管理</a>
+                        </dd>
+                        <dd><a href="javascript:;" id="2" onclick="showTab(1,'/page_content','')">&nbsp;&nbsp;&nbsp;&nbsp;广告管理</a>
+                        </dd>
+                    </dl>
+                </li>
             </ul>
         </div>
     </div>
-    <div class="layui-body" id="container" >
+    <div class="layui-body" id="container">
         <!-- 内容主体区域 -->
         <div class="layui-tab" lay-filter="demo" style="width: 100%;height: 90%">
             <ul class="layui-tab-title"></ul>
@@ -102,7 +113,8 @@
     <div class="layui-footer">
         <p>
             Copyright 2011-2018 <a href="http://www.1000phone.com/"
-                                   rel="nofollow" target="_blank" title="千锋互联">北京易购科技有限公司  版权所有</a> 京ICP备12003911号-3 京公网安备11010802011455号
+                                   rel="nofollow" target="_blank" title="千锋互联">北京易购科技有限公司 版权所有</a> 京ICP备12003911号-3
+            京公网安备11010802011455号
         </p>
     </div>
 </div>
@@ -114,23 +126,24 @@
     var element;
     layui.config({
         base: '../media/layui/lay/modules/'
-    }).use(['element','app'], function(){
+    }).use(['element', 'app'], function () {
         element = layui.element;
-        showTab(20000,"main.html","首页");
+        showTab(20000, "/page_main", "首页");
     });
-    var tid=-1;
-    function showTab(id,u,n) {
-        if(tid>0){
-            element.tabDelete('demo',tid);
+    var tid = -1;
+
+    function showTab(id, u, n) {
+        if (tid > 0) {
+            element.tabDelete('demo', tid);
         }
         element.tabAdd('demo', {
-            title:n
-            ,content: '<iframe data-frameid="'+id+'" scrolling="auto" frameborder="0" src="'+u+'"></iframe>' //支持传入html
-            ,id:id
+            title: n
+            , content: '<iframe data-frameid="' + id + '" scrolling="auto" frameborder="0" src="' + u + '"></iframe>' //支持传入html
+            , id: id
         });
         element.tabChange('demo', id);
         element.render();
-        tid=id;
+        tid = id;
     }
 
 </script>
