@@ -1,3 +1,18 @@
 spring:
   application:
     name: shop-service-webflux
+  boot:
+    admin:
+      client:
+        url: localhost:9102
+  jmx:
+    default-domain: shop-service-webflux-9500
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 # nacos地址
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
