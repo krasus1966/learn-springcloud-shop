@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
-import top.krasus1966.shop.domain.Content;
-import top.krasus1966.shop.domain.vo.CommonResult;
+import top.krasus1966.shop.entity.Content;
+import top.krasus1966.shop.entity.vo.CommonResult;
 import top.krasus1966.shop.service.ContentService;
 
 import javax.annotation.Resource;

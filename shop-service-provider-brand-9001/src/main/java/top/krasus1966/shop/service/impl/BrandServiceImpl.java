@@ -3,7 +3,7 @@ package top.krasus1966.shop.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import top.krasus1966.shop.dao.BrandDao;
-import top.krasus1966.shop.domain.Brand;
+import top.krasus1966.shop.entity.Brand;
 import top.krasus1966.shop.service.BrandService;
 
 /**

@@ -1,4 +1,4 @@
-package top.krasus1966.shop.domain;
+package top.krasus1966.shop.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;

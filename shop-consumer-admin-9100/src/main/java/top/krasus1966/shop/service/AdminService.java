@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import top.krasus1966.shop.domain.Admin;
-import top.krasus1966.shop.domain.vo.CommonResult;
+import top.krasus1966.shop.entity.Admin;
+import top.krasus1966.shop.entity.vo.CommonResult;
 
 /**
  * Feign客户端-与管理端交互

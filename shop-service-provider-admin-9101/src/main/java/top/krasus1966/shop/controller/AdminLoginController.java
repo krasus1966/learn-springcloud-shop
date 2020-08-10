@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import top.krasus1966.shop.domain.Admin;
-import top.krasus1966.shop.domain.AdminLoginLog;
-import top.krasus1966.shop.domain.vo.CommonResult;
+import top.krasus1966.shop.entity.Admin;
+import top.krasus1966.shop.entity.AdminLoginLog;
+import top.krasus1966.shop.entity.vo.CommonResult;
 import top.krasus1966.shop.enums.AdminOperationEnum;
 import top.krasus1966.shop.service.AdminService;
 

@@ -3,7 +3,7 @@ package top.krasus1966.shop.handler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import top.krasus1966.shop.domain.vo.CommonResult;
+import top.krasus1966.shop.entity.vo.CommonResult;
 import top.krasus1966.shop.exception.CustomizeErrorCode;
 import top.krasus1966.shop.exception.CustomizeException;
 

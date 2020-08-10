@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import top.krasus1966.shop.domain.Brand;
+import top.krasus1966.shop.entity.Brand;
 import top.krasus1966.shop.service.BrandService;
 
 import javax.annotation.Resource;

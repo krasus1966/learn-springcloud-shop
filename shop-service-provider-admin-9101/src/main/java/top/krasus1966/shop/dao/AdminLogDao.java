@@ -2,7 +2,7 @@ package top.krasus1966.shop.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import top.krasus1966.shop.domain.AdminLoginLog;
+import top.krasus1966.shop.entity.AdminLoginLog;
 
 /**
  * @author Krasus1966

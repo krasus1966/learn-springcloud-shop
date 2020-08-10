@@ -1,7 +1,7 @@
 package top.krasus1966.shop.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import top.krasus1966.shop.domain.Brand;
+import top.krasus1966.shop.entity.Brand;
 
 /**
  * @author Krasus1966

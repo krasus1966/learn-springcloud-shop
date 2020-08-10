@@ -1,4 +1,4 @@
-package top.krasus1966.shop.domain.vo;
+package top.krasus1966.shop.entity.vo;
 
 import lombok.Data;
 import top.krasus1966.shop.enums.ICustomizeEnum;

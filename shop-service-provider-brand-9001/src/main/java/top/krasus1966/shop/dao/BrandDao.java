@@ -2,7 +2,7 @@ package top.krasus1966.shop.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import top.krasus1966.shop.domain.Brand;
+import top.krasus1966.shop.entity.Brand;
 
 /**
  * 品牌相关Dao

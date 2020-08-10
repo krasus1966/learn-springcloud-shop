@@ -6,8 +6,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
-import top.krasus1966.shop.domain.Brand;
-import top.krasus1966.shop.domain.vo.CommonResult;
+import top.krasus1966.shop.entity.Brand;
+import top.krasus1966.shop.entity.vo.CommonResult;
 
 import java.util.List;
 

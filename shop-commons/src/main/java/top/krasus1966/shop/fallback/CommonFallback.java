@@ -1,7 +1,7 @@
 package top.krasus1966.shop.fallback;
 
 import lombok.extern.slf4j.Slf4j;
-import top.krasus1966.shop.domain.vo.CommonResult;
+import top.krasus1966.shop.entity.vo.CommonResult;
 import top.krasus1966.shop.enums.CommonFallbackEnum;
 
 /**

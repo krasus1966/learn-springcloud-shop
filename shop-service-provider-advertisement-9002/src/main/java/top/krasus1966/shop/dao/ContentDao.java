@@ -1,7 +1,7 @@
 package top.krasus1966.shop.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import top.krasus1966.shop.domain.Content;
+import top.krasus1966.shop.entity.Content;
 
 /**
  * @author Krasus1966

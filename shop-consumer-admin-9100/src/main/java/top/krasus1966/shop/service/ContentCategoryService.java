@@ -6,8 +6,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
-import top.krasus1966.shop.domain.ContentCategory;
-import top.krasus1966.shop.domain.vo.CommonResult;
+import top.krasus1966.shop.entity.ContentCategory;
+import top.krasus1966.shop.entity.vo.CommonResult;
 
 /**
  * Feign客户端-与广告服务端交互
