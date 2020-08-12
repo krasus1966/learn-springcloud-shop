@@ -3,8 +3,8 @@ package top.krasus1966.shop.controller.page;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @author Krasus1966
@@ -18,7 +18,7 @@ public class CommonController {
      * 跳转到登录页面
      * @return 登录页
      */
-    @RequestMapping({"/","/admin"})
+    @GetMapping({"/","/admin"})
     public String loginPage(){
         return "login";
     }
@@ -28,7 +28,7 @@ public class CommonController {
      * @param page 页面名称
      * @return 对应页面
      */
-    @RequestMapping("/page_{page}")
+    @GetMapping("/page_{page}")
     public String page(@PathVariable("page") String page){
         return "admin/"+page;
     }

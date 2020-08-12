@@ -21,7 +21,6 @@ public interface ContentService {
     /**
      * 分页查询广告
      *
-     * @param content 广告
      * @param current 页码
      * @param size    每页条数
      * @return {code,msg,data}
@@ -29,7 +28,6 @@ public interface ContentService {
     @ApiOperation("分页查询广告列表")
     @PostMapping("/queryPage")
     CommonResult<Page<Content>> queryPage(
-            @RequestBody(required = false) Content content,
             @RequestParam(value = "current", defaultValue = "1", required = false) Integer current,
             @RequestParam(value = "size", defaultValue = "10", required = false) Integer size);
 

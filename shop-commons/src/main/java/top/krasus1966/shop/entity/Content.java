@@ -2,6 +2,7 @@ package top.krasus1966.shop.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -47,5 +48,6 @@ public class Content extends Model<Content> implements Serializable {
 
     @TableLogic
     @TableField(select = false)
+    @JsonIgnore
     private Integer del;
 }
