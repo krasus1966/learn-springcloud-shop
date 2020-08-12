@@ -24,7 +24,6 @@ public class ContentController {
     /**
      * 分页查询广告
      *
-     * @param content 广告
      * @param current 页码
      * @param size    每页条数
      * @return {code,msg,data}
@@ -32,10 +31,9 @@ public class ContentController {
     @ApiOperation("分页查询广告")
     @PostMapping("/queryPage")
     public CommonResult<Page<Content>> queryPage(
-            @RequestParam(required = false) Content content,
             @RequestParam("current") Integer current,
             @RequestParam("size") Integer size) {
-        return contentService.queryPage(content, current, size);
+        return contentService.queryPage(current, size);
     }
 
     /**

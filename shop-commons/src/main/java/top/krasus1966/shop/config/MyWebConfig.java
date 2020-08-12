@@ -3,7 +3,7 @@ package top.krasus1966.shop.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import top.krasus1966.shop.interceptor.NotFountInterceptor;
+import top.krasus1966.shop.interceptor.RequestPathInterceptor;
 
 /**
  * 拦截器配置
@@ -15,6 +15,6 @@ import top.krasus1966.shop.interceptor.NotFountInterceptor;
 public class MyWebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new NotFountInterceptor()).addPathPatterns("/**");
+        registry.addInterceptor(new RequestPathInterceptor()).addPathPatterns("/**");
     }
 }

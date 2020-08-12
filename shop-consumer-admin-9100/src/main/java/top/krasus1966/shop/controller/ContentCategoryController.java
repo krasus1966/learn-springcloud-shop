@@ -22,23 +22,6 @@ public class ContentCategoryController {
     private ContentCategoryService contentCategoryService;
 
     /**
-     * 分页查询广告分类
-     *
-     * @param contentCategory 广告分类
-     * @param current         页码
-     * @param size            每页条数
-     * @return {code,msg,data}
-     */
-    @ApiOperation("分页查询广告分类")
-    @PostMapping("/queryPage")
-    public CommonResult<Page<ContentCategory>> queryPage(
-            @RequestParam(required = false) ContentCategory contentCategory,
-            @RequestParam("current") Integer current,
-            @RequestParam("size") Integer size) {
-        return contentCategoryService.queryPage(contentCategory, current, size);
-    }
-
-    /**
      * 新增广告分类
      *
      * @param contentCategory 广告分类
@@ -72,5 +55,33 @@ public class ContentCategoryController {
     @PutMapping("/update")
     public CommonResult<ContentCategory> update(ContentCategory contentCategory) {
         return contentCategoryService.update(contentCategory);
+    }
+
+    /**
+     * 通过id查询广告分类信息
+     *
+     * @param id 广告分类id
+     * @return {code,msg,data}
+     */
+    @ApiOperation("通过id查询广告分类信息")
+    @PostMapping("/getById")
+    public CommonResult<ContentCategory> getById(@RequestParam("id") Long id) {
+        return contentCategoryService.getById(id);
+    }
+
+    /**
+     * 分页查询广告分类
+     *
+     * @param current         页码
+     * @param size            每页条数
+     * @return {code,msg,data}
+     */
+    @ApiOperation("分页查询广告分类")
+    @PostMapping("/queryPage")
+    public CommonResult<Page<ContentCategory>> queryPage(
+            @RequestParam("current") Integer current,
+            @RequestParam("size") Integer size) {
+
+        return contentCategoryService.queryPage(current, size);
     }
 }

@@ -24,23 +24,6 @@ public class ContentCategoryController {
     private ContentCategoryService contentCategoryService;
 
     /**
-     * 分页查询广告分类
-     *
-     * @param contentCategory 广告分类
-     * @param current         页码
-     * @param size            每页条数
-     * @return {code,msg,data}
-     */
-    @ApiOperation("分页查询广告分类列表")
-    @PostMapping("/queryPage")
-    public CommonResult<Page<ContentCategory>> queryPage(
-            @RequestBody(required = false) ContentCategory contentCategory,
-            @RequestParam(value = "current", defaultValue = "1", required = false) Integer current,
-            @RequestParam(value = "size", defaultValue = "10", required = false) Integer size) {
-        return CommonResult.parse(CommonEnum.QUERY_OK, contentCategoryService.page(new Page<>(current, size)));
-    }
-
-    /**
      * 新增广告分类
      *
      * @param contentCategory 广告分类
@@ -74,5 +57,34 @@ public class ContentCategoryController {
     @PutMapping("/update")
     public CommonResult<ContentCategory> update(@RequestBody ContentCategory contentCategory) {
         return CommonResult.parse(contentCategoryService.updateById(contentCategory) ? CommonEnum.UPDATE_OK : CommonEnum.UPDATE_ERR, contentCategory.selectById());
+    }
+
+    /**
+     * 通过id查询广告分类信息
+     *
+     * @param id 广告分类id
+     * @return {code,msg,data}
+     */
+    @ApiOperation("通过id查询广告分类信息")
+    @PostMapping("/getById")
+    public CommonResult<ContentCategory> getById(@RequestParam("contentCategoryId") Long id) {
+        return CommonResult.parse(CommonEnum.QUERY_OK, contentCategoryService.getById(id));
+    }
+
+    /**
+     * 分页查询广告分类
+     *
+     * @param contentCategory 广告分类
+     * @param current         页码
+     * @param size            每页条数
+     * @return {code,msg,data}
+     */
+    @ApiOperation("分页查询广告分类列表")
+    @PostMapping("/queryPage")
+    public CommonResult<Page<ContentCategory>> queryPage(
+            @RequestBody(required = false) ContentCategory contentCategory,
+            @RequestParam(value = "current", defaultValue = "1", required = false) Integer current,
+            @RequestParam(value = "size", defaultValue = "10", required = false) Integer size) {
+        return CommonResult.parse(CommonEnum.QUERY_OK, contentCategoryService.page(new Page<>(current, size)));
     }
 }

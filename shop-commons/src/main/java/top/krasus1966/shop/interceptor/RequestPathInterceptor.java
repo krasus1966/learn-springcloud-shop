@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2020/8/8 21:41
  **/
 @Slf4j
-public class NotFountInterceptor extends HandlerInterceptorAdapter {
+public class RequestPathInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if (response.getStatus() == HttpStatus.NOT_FOUND.value()) {
