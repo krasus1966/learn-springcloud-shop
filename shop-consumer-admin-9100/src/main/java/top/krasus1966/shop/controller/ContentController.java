@@ -22,21 +22,6 @@ public class ContentController {
     private ContentService contentService;
 
     /**
-     * 分页查询广告
-     *
-     * @param current 页码
-     * @param size    每页条数
-     * @return {code,msg,data}
-     */
-    @ApiOperation("分页查询广告")
-    @PostMapping("/queryPage")
-    public CommonResult<Page<Content>> queryPage(
-            @RequestParam("current") Integer current,
-            @RequestParam("size") Integer size) {
-        return contentService.queryPage(current, size);
-    }
-
-    /**
      * 新增广告
      *
      * @param content 广告
@@ -70,5 +55,32 @@ public class ContentController {
     @PutMapping("/update")
     public CommonResult<Content> update(Content content) {
         return contentService.update(content);
+    }
+
+    /**
+     * 通过id查看广告详细信息
+     *
+     * @param id 广告id
+     * @return {code,msg,data}
+     */
+    @ApiOperation("通过id查看广告详细信息")
+    @PostMapping("/getById")
+    public CommonResult<Content> getById(@RequestParam("id") Long id) {
+        return contentService.getById(id);
+    }
+
+    /**
+     * 分页查询广告
+     *
+     * @param current 页码
+     * @param size    每页条数
+     * @return {code,msg,data}
+     */
+    @ApiOperation("分页查询广告")
+    @PostMapping("/queryPage")
+    public CommonResult<Page<Content>> queryPage(
+            @RequestParam("current") Integer current,
+            @RequestParam("size") Integer size) {
+        return contentService.queryPage(current, size);
     }
 }

@@ -1,4 +1,4 @@
-package top.krasus1966.shop.dao;
+package top.krasus1966.shop.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
@@ -9,5 +9,5 @@ import top.krasus1966.shop.entity.ContentCategory;
  * @date 2020/8/6 22:18
  **/
 @Mapper
-public interface ContentCategoryDao extends BaseMapper<ContentCategory> {
+public interface ContentCategoryMapper extends BaseMapper<ContentCategory> {
 }

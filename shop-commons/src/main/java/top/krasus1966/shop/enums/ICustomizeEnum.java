@@ -1,5 +1,7 @@
 package top.krasus1966.shop.enums;
 
+import com.baomidou.mybatisplus.core.enums.IEnum;
+
 /**
  * 通用Enum接口
  * @author Krasus1966

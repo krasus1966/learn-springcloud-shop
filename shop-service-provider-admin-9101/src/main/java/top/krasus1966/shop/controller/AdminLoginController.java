@@ -11,7 +11,7 @@ import top.krasus1966.shop.entity.Admin;
 import top.krasus1966.shop.entity.AdminLoginLog;
 import top.krasus1966.shop.entity.vo.CommonResult;
 import top.krasus1966.shop.enums.AdminOperationEnum;
-import top.krasus1966.shop.service.AdminService;
+import top.krasus1966.shop.service.IAdminService;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/provider/admin")
 public class AdminLoginController {
     @Resource
-    private AdminService adminService;
+    private IAdminService adminService;
 
     /**
      * 发送登录请求

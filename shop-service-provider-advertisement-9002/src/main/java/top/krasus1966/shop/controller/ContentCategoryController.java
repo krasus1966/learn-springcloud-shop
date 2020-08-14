@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import top.krasus1966.shop.entity.ContentCategory;
 import top.krasus1966.shop.entity.vo.CommonResult;
 import top.krasus1966.shop.enums.CommonEnum;
-import top.krasus1966.shop.service.ContentCategoryService;
+import top.krasus1966.shop.service.IContentCategoryService;
 
 import javax.annotation.Resource;
 
@@ -21,7 +21,7 @@ import javax.annotation.Resource;
 public class ContentCategoryController {
 
     @Resource
-    private ContentCategoryService contentCategoryService;
+    private IContentCategoryService contentCategoryService;
 
     /**
      * 新增广告分类

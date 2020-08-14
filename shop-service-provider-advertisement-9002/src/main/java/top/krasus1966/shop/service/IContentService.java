@@ -1,11 +1,11 @@
 package top.krasus1966.shop.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import top.krasus1966.shop.entity.Brand;
+import top.krasus1966.shop.entity.Content;
 
 /**
  * @author Krasus1966
- * @date 2020/7/17 22:16
+ * @date 2020/8/8 22:52
  **/
-public interface BrandService extends IService<Brand> {
+public interface IContentService extends IService<Content> {
 }

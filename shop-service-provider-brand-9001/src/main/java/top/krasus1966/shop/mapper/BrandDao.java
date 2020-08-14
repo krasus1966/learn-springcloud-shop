@@ -1,4 +1,4 @@
-package top.krasus1966.shop.dao;
+package top.krasus1966.shop.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;

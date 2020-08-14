@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import top.krasus1966.shop.entity.Content;
 import top.krasus1966.shop.entity.vo.CommonResult;
 import top.krasus1966.shop.enums.CommonEnum;
-import top.krasus1966.shop.service.ContentService;
+import top.krasus1966.shop.service.IContentService;
 
 import javax.annotation.Resource;
 
@@ -20,22 +20,7 @@ import javax.annotation.Resource;
 @RequestMapping(value = "/provider/admin/content")
 public class ContentController {
     @Resource
-    private ContentService contentService;
-
-    /**
-     * 分页查询广告
-     *
-     * @param current 页码
-     * @param size    每页条数
-     * @return {code,msg,data}
-     */
-    @ApiOperation("分页查询广告列表")
-    @PostMapping("/queryPage")
-    public CommonResult<Page<Content>> queryPage(
-            @RequestParam(value = "current", defaultValue = "1", required = false) Integer current,
-            @RequestParam(value = "size", defaultValue = "10", required = false) Integer size) {
-        return CommonResult.parse(CommonEnum.QUERY_OK, contentService.page(new Page<>(current, size)));
-    }
+    private IContentService contentService;
 
     /**
      * 新增广告
@@ -71,5 +56,33 @@ public class ContentController {
     @PutMapping("/update")
     public CommonResult<Content> update(@RequestBody Content content) {
         return CommonResult.parse(contentService.updateById(content) ? CommonEnum.UPDATE_OK : CommonEnum.UPDATE_ERR, content.selectById());
+    }
+
+    /**
+     * 通过id查看广告详细信息
+     *
+     * @param id 广告id
+     * @return {code,msg,data}
+     */
+    @ApiOperation("通过id查看广告详细信息")
+    @PostMapping("/getById")
+    public CommonResult<Content> getById(@RequestParam("id") Long id) {
+        return CommonResult.parse(CommonEnum.QUERY_OK, contentService.getById(id));
+    }
+
+
+    /**
+     * 分页查询广告
+     *
+     * @param current 页码
+     * @param size    每页条数
+     * @return {code,msg,data}
+     */
+    @ApiOperation("分页查询广告列表")
+    @PostMapping("/queryPage")
+    public CommonResult<Page<Content>> queryPage(
+            @RequestParam(value = "current", defaultValue = "1", required = false) Integer current,
+            @RequestParam(value = "size", defaultValue = "10", required = false) Integer size) {
+        return CommonResult.parse(CommonEnum.QUERY_OK, contentService.page(new Page<>(current, size)));
     }
 }

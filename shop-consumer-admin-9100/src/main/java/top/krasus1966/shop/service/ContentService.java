@@ -19,19 +19,6 @@ import top.krasus1966.shop.entity.vo.CommonResult;
 @RequestMapping(value = "/provider/admin/content")
 public interface ContentService {
     /**
-     * 分页查询广告
-     *
-     * @param current 页码
-     * @param size    每页条数
-     * @return {code,msg,data}
-     */
-    @ApiOperation("分页查询广告列表")
-    @PostMapping("/queryPage")
-    CommonResult<Page<Content>> queryPage(
-            @RequestParam(value = "current", defaultValue = "1", required = false) Integer current,
-            @RequestParam(value = "size", defaultValue = "10", required = false) Integer size);
-
-    /**
      * 新增广告
      *
      * @param content 广告
@@ -60,4 +47,28 @@ public interface ContentService {
     @ApiOperation("修改广告")
     @PutMapping("/update")
     CommonResult<Content> update(@RequestBody Content content);
+
+    /**
+     * 通过id查看广告详细信息
+     *
+     * @param id 广告id
+     * @return {code,msg,data}
+     */
+    @ApiOperation("通过id查看广告详细信息")
+    @PostMapping("/getById")
+    CommonResult<Content> getById(Long id);
+
+    /**
+     * 分页查询广告
+     *
+     * @param current 页码
+     * @param size    每页条数
+     * @return {code,msg,data}
+     */
+    @ApiOperation("分页查询广告列表")
+    @PostMapping("/queryPage")
+    CommonResult<Page<Content>> queryPage(
+            @RequestParam(value = "current", defaultValue = "1", required = false) Integer current,
+            @RequestParam(value = "size", defaultValue = "10", required = false) Integer size);
+
 }

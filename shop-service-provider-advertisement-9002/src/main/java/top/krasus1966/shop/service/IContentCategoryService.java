@@ -7,5 +7,5 @@ import top.krasus1966.shop.entity.ContentCategory;
  * @author Krasus1966
  * @date 2020/8/6 22:19
  **/
-public interface ContentCategoryService extends IService<ContentCategory> {
+public interface IContentCategoryService extends IService<ContentCategory> {
 }

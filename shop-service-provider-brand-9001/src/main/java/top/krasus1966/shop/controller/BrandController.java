@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 import top.krasus1966.shop.entity.Brand;
 import top.krasus1966.shop.entity.vo.CommonResult;
-import top.krasus1966.shop.service.BrandService;
+import top.krasus1966.shop.service.IBrandService;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -27,7 +27,7 @@ import java.util.List;
 public class BrandController {
 
     @Resource
-    protected BrandService brandService;
+    protected IBrandService brandService;
 
     /**
      * 查询所有品牌
