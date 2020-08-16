@@ -51,6 +51,12 @@
             <version>3.3.2</version>
             <scope>compile</scope>
         </dependency>
+        <!--   FastDFS文件服务器依赖     -->
+        <dependency>
+            <groupId>fastdfs_client</groupId>
+            <artifactId>fastdfs_client</artifactId>
+            <version>1.25</version>
+        </dependency>
         <!--   其他依赖     -->
         <dependency>
             <groupId>org.projectlombok</groupId>
