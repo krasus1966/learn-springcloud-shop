@@ -2,7 +2,6 @@ package top.krasus1966.shop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * WebFlux模块启动类，此模块暂无用途

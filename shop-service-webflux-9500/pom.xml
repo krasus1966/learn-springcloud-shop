@@ -18,7 +18,6 @@
             <artifactId>shop-commons</artifactId>
             <version>${project.version}</version>
         </dependency>
-
         <!--   SpringCloud Alibaba相关     -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

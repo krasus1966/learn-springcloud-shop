@@ -51,11 +51,11 @@
             <version>3.3.2</version>
             <scope>compile</scope>
         </dependency>
-        <!--   FastDFS文件服务器依赖     -->
+        <!--   FastDFS文件服务器依赖-自己封装     -->
         <dependency>
-            <groupId>fastdfs_client</groupId>
-            <artifactId>fastdfs_client</artifactId>
-            <version>1.25</version>
+            <groupId>top.krasus1966</groupId>
+            <artifactId>spring-boot-starter-fastdfs</artifactId>
+            <version>1.0</version>
         </dependency>
         <!--   其他依赖     -->
         <dependency>
