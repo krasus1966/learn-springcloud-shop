@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2020/8/3 21:56
  **/
 @SpringBootApplication
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 public class ShopWebFlux9500Main {
     public static void main(String[] args) {
         SpringApplication.run(ShopWebFlux9500Main.class,args);

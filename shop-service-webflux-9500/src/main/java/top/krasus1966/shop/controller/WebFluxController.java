@@ -12,10 +12,8 @@ import reactor.core.publisher.Mono;
 @RestController
 public class WebFluxController {
 
-
     @PostMapping("/webflux")
-    public Mono<String> webFluxTest(){
-
+    public Mono<String> webFluxTest() throws Exception {
         return null;
     }
 }
