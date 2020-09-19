@@ -1,6 +1,7 @@
 package top.krasus1966.shop.exception;
 
 import lombok.Getter;
+import top.krasus1966.shop.enums.ICommonEnum;
 
 /**
  * 通用异常处理
@@ -14,7 +15,7 @@ public class CommonException extends RuntimeException {
     private final Integer code;
     private final String message;
 
-    public CommonException(ICommonErrorCode errorCode){
+    public CommonException(ICommonEnum errorCode){
         this.code = errorCode.getCode();
         this.message = errorCode.getMessage();
     }

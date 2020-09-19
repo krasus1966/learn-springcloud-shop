@@ -1,4 +1,4 @@
-package top.krasus1966.shop.exception;
+package top.krasus1966.shop.enums;
 
 import lombok.Getter;
 
@@ -9,7 +9,7 @@ import lombok.Getter;
  * @date 2020/7/27 15:09
  **/
 @Getter
-public enum CommonErrorCode implements ICommonErrorCode {
+public enum CommonErrorEnum implements ICommonEnum {
     //页面不存在错误
     PAGE_NOT_FOUND(404, "页面跑丢了"),
     //出现不可预料的错误时进行此提示
@@ -18,7 +18,7 @@ public enum CommonErrorCode implements ICommonErrorCode {
     private final Integer code;
     private final String message;
 
-    CommonErrorCode(Integer code, String message) {
+    CommonErrorEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
     }

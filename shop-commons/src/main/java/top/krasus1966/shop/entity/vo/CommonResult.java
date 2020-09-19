@@ -82,24 +82,28 @@ public class CommonResult<T> implements Serializable {
     }
 
     /**
-     * 通用返回格式
+     * 通用返回格式 返回通用错误信息 （已废弃）
      *
      * @param iCommonErrorCode 封装错误信息
      * @param <T>                 空泛型
      * @return {code,msg}
+     * @deprecated 通用异常处理接口 已废弃
      */
+    @Deprecated
     public static <T> CommonResult<T> parse(ICommonErrorCode iCommonErrorCode) {
         return new CommonResult<>(iCommonErrorCode.getCode(), iCommonErrorCode.getMessage());
     }
 
     /**
-     * 通用返回格式
+     * 通用返回格式 返回通用错误信息 （已废弃）
      *
      * @param iCommonErrorCode 封装错误信息
      * @param data                返回值
      * @param <T>                 泛型，返回值类型
      * @return {code,msg,data}
+     * @deprecated 通用异常处理接口 已废弃
      */
+    @Deprecated
     public static <T> CommonResult<T> parse(ICommonErrorCode iCommonErrorCode, T data) {
         return new CommonResult<>(iCommonErrorCode.getCode(), iCommonErrorCode.getMessage(), data);
     }

@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import top.krasus1966.shop.entity.vo.CommonResult;
-import top.krasus1966.shop.exception.CommonErrorCode;
+import top.krasus1966.shop.enums.CommonErrorEnum;
 import top.krasus1966.shop.exception.CommonException;
 
 /**
@@ -24,7 +24,7 @@ public class CustomizeControllerAdvice {
             return CommonResult.parse(((CommonException) e).getCode(),e.getMessage());
         }else{
             log.error("服务出现未知错误", e);
-            return CommonResult.parse(CommonErrorCode.SERVICE_GOT_WRONG, e.getMessage());
+            return CommonResult.parse(CommonErrorEnum.SERVICE_GOT_WRONG, e.getMessage());
         }
     }
 }

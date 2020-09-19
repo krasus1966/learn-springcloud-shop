@@ -34,6 +34,7 @@ public class AdminController {
      *
      * @param admin 管理员用户名与密码
      * @return {code,msg,data}
+     * 需要忽略抛出的异常 请使用 exceptionsToIgnore = {需要忽略的异常类型}
      */
     @ApiOperation("管理员登录接口")
     @PostMapping(value = "/toLogin")
@@ -43,7 +44,6 @@ public class AdminController {
             fallbackClass = CommonFallback.class,
             fallback = "handlerFallback",
             exceptionsToIgnore = {CommonException.class}
-            //需要忽略抛出的异常 请使用 exceptionsToIgnore = {需要忽略的异常类型}
     )
     public CommonResult<Admin> toLogin(Admin admin, HttpSession httpSession) {
         Admin user = adminService.toLogin(admin).getData();

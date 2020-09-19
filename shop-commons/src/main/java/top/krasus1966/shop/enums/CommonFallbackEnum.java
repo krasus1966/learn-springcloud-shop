@@ -2,7 +2,6 @@ package top.krasus1966.shop.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import top.krasus1966.shop.exception.ICommonErrorCode;
 
 /**
  * 通用异常返回值
@@ -12,7 +11,7 @@ import top.krasus1966.shop.exception.ICommonErrorCode;
  **/
 @Getter
 @AllArgsConstructor
-public enum CommonFallbackEnum implements ICommonErrorCode {
+public enum CommonFallbackEnum implements ICommonEnum {
     /**
      * 服务器降级（限流）
      */
