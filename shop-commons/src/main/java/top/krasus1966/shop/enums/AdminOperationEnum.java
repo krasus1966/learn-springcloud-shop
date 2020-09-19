@@ -11,11 +11,11 @@ import lombok.Getter;
  **/
 @Getter
 @AllArgsConstructor
-public enum AdminOperationEnum implements ICustomizeEnum {
+public enum AdminOperationEnum implements ICommonEnum {
     /**
      * 管理员用户登录失败
      */
-    ADMIN_LOGIN_ERROR(11001, "用户名或密码不正确"),
+    ADMIN_LOGIN_ERROR(10001, "用户名或密码不正确"),
     /**
      * 管理员用户登录成功
      */
@@ -23,7 +23,7 @@ public enum AdminOperationEnum implements ICustomizeEnum {
     /**
      * 管理员状态为禁用
      */
-    ADMIN_LOCKDOWN(11002,"用户已被禁用，请联系超级管理员"),
+    ADMIN_LOCKDOWN(10002,"用户已被禁用，请联系超级管理员"),
 
     ;
 

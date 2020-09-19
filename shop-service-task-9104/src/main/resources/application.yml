@@ -3,4 +3,4 @@ spring:
     #    active: dev-eureka
     active: dev-nacos
 server:
-  port: 9103
+  port: 9104

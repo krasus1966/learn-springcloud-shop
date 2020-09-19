@@ -17,7 +17,8 @@
         <module>shop-service-provider-advertisement-9002</module>
         <module>shop-actuator-admin-9102</module>
         <module>common-generator</module>
-        <module>shop-service-task</module>
+        <module>shop-service-task-9104</module>
+        <module>shop-service-provider-resources-9103</module>
     </modules>
     <name>shop</name>
     <description>通过学习SpringCloud，编写第一个基于SpringCloud的应用</description>

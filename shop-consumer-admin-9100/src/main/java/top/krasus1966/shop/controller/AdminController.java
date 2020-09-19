@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import top.krasus1966.shop.entity.Admin;
 import top.krasus1966.shop.entity.vo.CommonResult;
 import top.krasus1966.shop.enums.AdminOperationEnum;
-import top.krasus1966.shop.exception.CustomizeException;
+import top.krasus1966.shop.exception.CommonException;
 import top.krasus1966.shop.fallback.CommonFallback;
 import top.krasus1966.shop.handler.CommonHander;
 import top.krasus1966.shop.service.AdminService;
@@ -42,7 +42,7 @@ public class AdminController {
             blockHandler = "commonHandlerException",
             fallbackClass = CommonFallback.class,
             fallback = "handlerFallback",
-            exceptionsToIgnore = {CustomizeException.class}
+            exceptionsToIgnore = {CommonException.class}
             //需要忽略抛出的异常 请使用 exceptionsToIgnore = {需要忽略的异常类型}
     )
     public CommonResult<Admin> toLogin(Admin admin, HttpSession httpSession) {

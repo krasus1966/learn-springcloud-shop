@@ -8,13 +8,13 @@ import lombok.Getter;
  * @date 2020/7/27 15:06
  **/
 @Getter
-public class CustomizeException extends RuntimeException {
+public class CommonException extends RuntimeException {
     private static final long serialVersionUID = -2844300659641339789L;
 
     private final Integer code;
     private final String message;
 
-    public CustomizeException(ICustomizeErrorCode errorCode){
+    public CommonException(ICommonErrorCode errorCode){
         this.code = errorCode.getCode();
         this.message = errorCode.getMessage();
     }

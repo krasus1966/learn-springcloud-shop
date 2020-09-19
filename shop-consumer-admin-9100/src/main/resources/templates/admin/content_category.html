@@ -111,6 +111,7 @@
                 <table class="table table-bordered table-striped" width="800px">
                     <tr>
                         <td>分类名称</td>
+                        <input name="cate" class="form-control" placeholder="分类id" id="updateInputId" value="" type="hidden">
                         <td><input name="cate" class="form-control" placeholder="分类名称" id="updateInput" value=""></td>
                     </tr>
                     <!--                    <tr>-->
@@ -130,8 +131,7 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-success" data-dismiss="modal" aria-hidden="true" onclick="updateCate()">保存
-                </button>
+                <button class="btn btn-success" data-dismiss="modal" aria-hidden="true" onclick="updateCate()">保存</button>
                 <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
             </div>
         </div>
@@ -148,6 +148,26 @@
             success: function (result) {
                 if (result.code === 10000) {
                     $("#updateInput").val(result.data.name);
+                    $("#updateInputId").val(obj.value);
+                } else {
+                    alert(result.msg);
+                }
+            }
+        })
+    }
+
+    function updateCate() {
+        var name = $("#updateInput").val();
+        var id = $("#updateInputId").val();
+        $.ajax({
+            url: "/consumer/admin/contentCategory/update",
+            data: "id=" + id + "&name=" + name,
+            dataType: "json",
+            type: "put",
+            success: function (result) {
+                if (result.code === 10000) {
+                    alert(result.msg);
+                    window.location.reload();
                 } else {
                     alert(result.msg);
                 }

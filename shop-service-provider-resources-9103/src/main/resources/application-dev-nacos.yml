@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: shop-service-provider-resources
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 # nacos地址
+#    sentinel:
+#      eager: true
+#      transport:
+#        dashboard: localhost:8500
+#        port: 8179
+  jmx:
+    default-domain: shop-service-provider-resources-9103
+  boot:
+    admin:
+      client:
+        url: localhost:9102
+  main:
+    allow-bean-definition-overriding: true
+
+ribbon:
+  # 建立连接后从服务器读取到可用资源所用的时间
+  ReadTimeout: 5000
+  # 建立连接所用的时间，适用于网络状况正常的情况下，两端连接所用的时间
+  ConnectTimeout: 5000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

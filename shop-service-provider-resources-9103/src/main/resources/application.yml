@@ -1,0 +1,5 @@
+server:
+  port: 9103
+spring:
+  profiles:
+    active: dev-nacos

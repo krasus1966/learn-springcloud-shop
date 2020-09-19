@@ -14,7 +14,26 @@
     <link rel="stylesheet" href="../css/style.css">
     <script src="../plugins/jQuery/jquery-2.2.3.min.js"></script>
     <script src="../plugins/bootstrap/js/bootstrap.min.js"></script>
-
+    <script>
+        function uploadImg(){
+            //模拟表单对象
+            var formData = new FormData();
+            //向表单中新增一个文件上传框
+            formData.append("file",document.getElementById("file").files[0]);
+            $.ajax({
+                url:"file/imageUpload",
+                type:"post",
+                data:formData,
+                //必须为false，文件上传的时候默认才会有正确的content-type
+                contentType:false,
+                //必须为false，异步对象XMLhttpRequest才会对文件上传表单正确处理
+                processData:false,
+                success:function(result){
+                    alert(JSON.stringify(result));
+                }
+            })
+        }
+    </script>
 </head>
 
 <body class="hold-transition skin-red sidebar-mini">
@@ -136,12 +155,13 @@
                                 <tr>
                                     <td>
                                         <input type="file" id="file"/>
-                                        <button class="btn btn-primary" type="button">
+                                        <input type="hidden" name="pic" id="upload_image">
+                                        <button class="btn btn-primary" type="button" onclick="uploadImg()">
                                             上传
                                         </button>
                                     </td>
                                     <td>
-                                        <img src="{{entity.pic}}" width="200px" height="100px">
+                                        <img src="" width="200px" height="100px">
                                     </td>
                                 </tr>
                             </table>

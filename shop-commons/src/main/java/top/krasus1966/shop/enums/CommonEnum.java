@@ -11,27 +11,27 @@ import lombok.Getter;
  **/
 @Getter
 @AllArgsConstructor
-public enum CommonEnum implements ICustomizeEnum {
+public enum CommonEnum implements ICommonEnum {
     /**
      * 查询返回值
      */
     QUERY_OK(10000, "查询成功"),
-    QUERY_ERR(13001, "查询失败"),
+    QUERY_ERR(10001, "查询失败"),
     /**
      * 新增返回值
      */
     INSERT_OK(10000,"新增成功"),
-    INSERT_ERR(13002,"新增失败"),
+    INSERT_ERR(10002,"新增失败"),
     /**
      * 删除返回值
      */
     DELETE_OK(10000,"删除成功"),
-    DELETE_ERR(13003,"删除成功"),
+    DELETE_ERR(10003,"删除成功"),
     /**
      * 更新返回值
      */
     UPDATE_OK(10000,"更新成功"),
-    UPDATE_ERR(13004,"更新失败"),
+    UPDATE_ERR(10004,"更新失败"),
     ;
 
 

@@ -1,8 +1,8 @@
 package top.krasus1966.shop.entity.vo;
 
 import lombok.Data;
-import top.krasus1966.shop.enums.ICustomizeEnum;
-import top.krasus1966.shop.exception.ICustomizeErrorCode;
+import top.krasus1966.shop.enums.ICommonEnum;
+import top.krasus1966.shop.exception.ICommonErrorCode;
 
 import java.io.Serializable;
 
@@ -55,52 +55,52 @@ public class CommonResult<T> implements Serializable {
      * @return {code,msg,data}
      */
     public static <T> CommonResult<T> parse(Integer code, String msg, T data) {
-        return new CommonResult<T>(code, msg, data);
+        return new CommonResult<>(code, msg, data);
     }
 
     /**
      * 通用返回格式
      *
-     * @param iCustomizeEnum 封装返回消息
+     * @param iCommonEnum 封装返回消息
      * @param <T>            空泛型
      * @return {code,msg}
      */
-    public static <T> CommonResult<T> parse(ICustomizeEnum iCustomizeEnum) {
-        return new CommonResult<T>(iCustomizeEnum.getCode(), iCustomizeEnum.getMessage());
+    public static <T> CommonResult<T> parse(ICommonEnum iCommonEnum) {
+        return new CommonResult<>(iCommonEnum.getCode(), iCommonEnum.getMessage());
     }
 
     /**
      * 通用返回格式
      *
-     * @param iCustomizeEnum 封装返回消息
+     * @param iCommonEnum 封装返回消息
      * @param data           返回值
      * @param <T>            泛型，返回值类型
      * @return {code,msg,data}
      */
-    public static <T> CommonResult<T> parse(ICustomizeEnum iCustomizeEnum, T data) {
-        return new CommonResult<T>(iCustomizeEnum.getCode(), iCustomizeEnum.getMessage(), data);
+    public static <T> CommonResult<T> parse(ICommonEnum iCommonEnum, T data) {
+        return new CommonResult<>(iCommonEnum.getCode(), iCommonEnum.getMessage(), data);
     }
 
     /**
      * 通用返回格式
      *
-     * @param iCustomizeErrorCode 封装错误信息
+     * @param iCommonErrorCode 封装错误信息
      * @param <T>                 空泛型
      * @return {code,msg}
      */
-    public static <T> CommonResult<T> parse(ICustomizeErrorCode iCustomizeErrorCode) {
-        return new CommonResult<T>(iCustomizeErrorCode.getCode(), iCustomizeErrorCode.getMessage());
+    public static <T> CommonResult<T> parse(ICommonErrorCode iCommonErrorCode) {
+        return new CommonResult<>(iCommonErrorCode.getCode(), iCommonErrorCode.getMessage());
     }
 
     /**
      * 通用返回格式
      *
-     * @param iCustomizeErrorCode 封装错误信息
+     * @param iCommonErrorCode 封装错误信息
      * @param data                返回值
      * @param <T>                 泛型，返回值类型
      * @return {code,msg,data}
      */
-    public static <T> CommonResult<T> parse(ICustomizeErrorCode iCustomizeErrorCode, T data) {
-        return new CommonResult<T>(iCustomizeErrorCode.getCode(), iCustomizeErrorCode.getMessage(), data);
+    public static <T> CommonResult<T> parse(ICommonErrorCode iCommonErrorCode, T data) {
+        return new CommonResult<>(iCommonErrorCode.getCode(), iCommonErrorCode.getMessage(), data);
     }
 }
