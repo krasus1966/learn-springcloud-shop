@@ -10,6 +10,7 @@ import top.krasus1966.shop.enums.CommonEnum;
 import top.krasus1966.shop.service.IContentCategoryService;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Krasus1966
@@ -86,5 +87,16 @@ public class ContentCategoryController {
             @RequestParam(value = "current", defaultValue = "1", required = false) Integer current,
             @RequestParam(value = "size", defaultValue = "10", required = false) Integer size) {
         return CommonResult.parse(CommonEnum.QUERY_OK, contentCategoryService.page(new Page<>(current, size)));
+    }
+
+    /**
+     * 列表查询广告分类信息
+     *
+     * @return {code,msg,data}
+     */
+    @ApiOperation("列表查询广告分类信息")
+    @PostMapping("/query")
+    public CommonResult<List<ContentCategory>> query(){
+        return CommonResult.parse(CommonEnum.QUERY_OK, contentCategoryService.list());
     }
 }

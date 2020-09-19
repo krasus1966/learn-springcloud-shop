@@ -1,6 +1,7 @@
 package top.krasus1966.shop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,6 +29,9 @@ public class FileUploadController {
     @Autowired
     private FastDFSClient fastDFSClient;
 
+    @Value("${fastdfs.storage-server}")
+    private String FASTDFS_URL;
+
     @PostMapping("/uploadImg")
     public CommonResult<String> uploadImg(@RequestParam("file") MultipartFile file){
         return resourceService.uploadImg(file);
@@ -43,7 +47,7 @@ public class FileUploadController {
         String extName = fileName.substring(fileName.lastIndexOf(".")).replace(".","");
         String filePathInfo;
         try {
-            filePathInfo = fastDFSClient.uploadFile(file.getBytes(),extName);
+            filePathInfo = "http://"+FASTDFS_URL+"/"+fastDFSClient.uploadFile(file.getBytes(),extName);
         } catch (Exception e) {
             e.printStackTrace();
             return CommonResult.parse(CommonErrorEnum.SERVICE_GOT_WRONG,e.getMessage());

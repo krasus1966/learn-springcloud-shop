@@ -29,3 +29,6 @@ management:
     web:
       exposure:
         include: '*'
+fastdfs:
+  tracker-server: 192.168.99.100:22122
+  storage-server: 192.168.99.100:8080

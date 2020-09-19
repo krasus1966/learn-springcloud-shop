@@ -9,6 +9,7 @@ import top.krasus1966.shop.entity.vo.CommonResult;
 import top.krasus1966.shop.service.ContentCategoryService;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author Krasus1966
@@ -83,5 +84,18 @@ public class ContentCategoryController {
             @RequestParam("size") Integer size) {
 
         return contentCategoryService.queryPage(current, size);
+    }
+
+    /**
+     * 列表查询广告分类
+     *
+     * @return {code,msg,data}
+     */
+    @ApiOperation("列表查询广告分类")
+    @PostMapping("/query")
+    public CommonResult<List<ContentCategory>> query(
+            @RequestParam("current") Integer current,
+            @RequestParam("size") Integer size) {
+        return contentCategoryService.query();
     }
 }

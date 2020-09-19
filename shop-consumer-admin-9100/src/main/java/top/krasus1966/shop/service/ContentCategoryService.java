@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import top.krasus1966.shop.entity.ContentCategory;
 import top.krasus1966.shop.entity.vo.CommonResult;
 
+import java.util.List;
+
 /**
  * Feign客户端-与广告服务端交互
  *
@@ -73,4 +75,13 @@ public interface ContentCategoryService {
     CommonResult<Page<ContentCategory>> queryPage(
             @RequestParam(value = "current", defaultValue = "1") Integer current,
             @RequestParam(value = "size", defaultValue = "10") Integer size);
+
+    /**
+     * 列表查询广告分类信息
+     *
+     * @return {code,msg,data}
+     */
+    @ApiOperation("分页查询广告分类信息")
+    @PostMapping("/query")
+    CommonResult<List<ContentCategory>> query();
 }

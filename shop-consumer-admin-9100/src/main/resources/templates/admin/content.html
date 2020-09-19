@@ -29,7 +29,12 @@
                 //必须为false，异步对象XMLhttpRequest才会对文件上传表单正确处理
                 processData:false,
                 success:function(result){
-                    alert(JSON.stringify(result));
+                    if(result.code === 10000){
+                        $("#pic").prop("src",result.data);
+                        $("#upload_image").val(result.data);
+                    }else{
+                        alert("上传失败");
+                    }
                 }
             })
         }
@@ -127,12 +132,12 @@
                 <h3 id="myModalLabel">广告编辑</h3>
             </div>
             <div class="modal-body">
-
                 <table class="table table-bordered table-striped" width="800px">
                     <tr>
                         <td>广告分类</td>
                         <td>
-                            <select class="form-control">
+                            <select  class="form-control" >
+                                <option th:each="category : ${contentCategorys.data}" th:value="${category.id}" th:text="${category.name}">
                             </select>
                         </td>
                     </tr>
@@ -161,7 +166,7 @@
                                         </button>
                                     </td>
                                     <td>
-                                        <img src="" width="200px" height="100px">
+                                        <img src="" id="pic" width="200px" height="100px">
                                     </td>
                                 </tr>
                             </table>
