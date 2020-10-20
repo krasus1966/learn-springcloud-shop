@@ -1,16 +1,22 @@
 package top.krasus1966.shop.controller;
 
+import com.mongodb.client.gridfs.GridFSBucket;
+import com.mongodb.client.gridfs.GridFSBuckets;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.data.mongodb.gridfs.GridFsCriteria;
+import org.springframework.data.mongodb.gridfs.GridFsTemplate;
+import org.springframework.data.mongodb.gridfs.GridFsUpload;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import top.krasus1966.fastdfs.FastDFSClient;
+import top.krasus1966.shop.entity.UploadFile;
 import top.krasus1966.shop.entity.vo.CommonResult;
 import top.krasus1966.shop.enums.CommonEnum;
 import top.krasus1966.shop.enums.CommonErrorEnum;
@@ -28,27 +34,47 @@ public class ImageController {
     @Autowired
     private FastDFSClient fastDFSClient;
 
+    @Autowired
+    private GridFsTemplate fsTemplate;
+
     @ApiOperation("图片上传接口")
     @ApiImplicitParams({
             @ApiImplicitParam(value = "文件", name = "file"),
     })
     @PostMapping("/imageUpload")
     public CommonResult<String> imageUpload(MultipartFile file) {
-        if (file.isEmpty()) {
-            return CommonResult.parse(CommonEnum.INSERT_ERR);
-        }
-        String fileName = file.getOriginalFilename();
-        assert fileName != null;
-        String extName = fileName.substring(fileName.lastIndexOf(".")).replace(".","");
-        String filePathInfo;
         try {
-            filePathInfo = fastDFSClient.uploadFile(file.getBytes(),extName);
-        } catch (Exception e) {
+            UploadFile uploadFile = new UploadFile();
+            uploadFile.setFileName(file.getOriginalFilename());
+            fsTemplate.store(file.getInputStream(),file.getName());
+            return CommonResult.parse(CommonEnum.INSERT_OK);
+        }catch (Exception e){
             e.printStackTrace();
             return CommonResult.parse(CommonErrorEnum.SERVICE_GOT_WRONG,e.getMessage());
         }
-        return CommonResult.parse(CommonEnum.INSERT_OK,filePathInfo);
     }
+
+//    @ApiOperation("图片上传接口")
+//    @ApiImplicitParams({
+//            @ApiImplicitParam(value = "文件", name = "file"),
+//    })
+//    @PostMapping("/imageUpload")
+//    public CommonResult<String> imageUpload(MultipartFile file) {
+//        if (file.isEmpty()) {
+//            return CommonResult.parse(CommonEnum.INSERT_ERR);
+//        }
+//        String fileName = file.getOriginalFilename();
+//        assert fileName != null;
+//        String extName = fileName.substring(fileName.lastIndexOf(".")).replace(".","");
+//        String filePathInfo;
+//        try {
+//            filePathInfo = fastDFSClient.uploadFile(file.getBytes(),extName);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return CommonResult.parse(CommonErrorEnum.SERVICE_GOT_WRONG,e.getMessage());
+//        }
+//        return CommonResult.parse(CommonEnum.INSERT_OK,filePathInfo);
+//    }
 
 //    @ApiOperation("图片下载回显")
 //    @ApiImplicitParams({

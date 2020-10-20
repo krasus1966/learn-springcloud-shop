@@ -18,6 +18,14 @@ spring:
         url: localhost:9102
   main:
     allow-bean-definition-overriding: true
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: upload_files
+      username: root
+      password: root
+      #uri: mongodb://root:root@127.0.0.1:27017
 
 ribbon:
   # 建立连接后从服务器读取到可用资源所用的时间

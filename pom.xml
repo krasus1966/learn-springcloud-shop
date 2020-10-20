@@ -27,29 +27,42 @@
         <java.version>1.8</java.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <spring.boot.version>2.3.1.RELEASE</spring.boot.version>
+        <spring.boot.version>2.3.4.RELEASE</spring.boot.version>
         <spring.cloud.version>Hoxton.SR6</spring.cloud.version>
         <spring.cloud.alibaba.version>2.2.1.RELEASE</spring.cloud.alibaba.version>
         <mysql.version>8.0.16</mysql.version>
         <druid.version>1.1.21</druid.version>
         <druid.spring.boot.version>1.1.10</druid.spring.boot.version>
+        <mybatis.plus>3.4.0</mybatis.plus>
+        <mybatis.plus.boot.starter>3.3.2</mybatis.plus.boot.starter>
         <mybatis.spring.boot.version>1.3.0</mybatis.spring.boot.version>
+        <p6spy>3.9.0</p6spy>
+        <hutool.all>5.1.0</hutool.all>
         <log4j.version>1.2.17</log4j.version>
         <junit.version>4.12</junit.version>
         <lombok.version>1.16.18</lombok.version>
+        <springfox.boot.starter>3.0.0</springfox.boot.starter>
+        <swagger.model>1.5.21</swagger.model>
+        <admin.starter.client>2.2.4</admin.starter.client>
         <sonar.moduleKey>${project.artifactId}</sonar.moduleKey>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter -->
+            <dependency>
+                <groupId>top.krasus1966</groupId>
+                <artifactId>shop-commons</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--     SpringBoot 依赖包       -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter</artifactId>
+                <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--      SpringCloud 依赖包      -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -57,6 +70,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--      SpringCloud Alibaba 依赖包      -->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -64,6 +78,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!--      数据库相关依赖      -->
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
@@ -80,15 +95,33 @@
                 <version>${druid.spring.boot.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatis.plus}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.boot.starter}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
                 <version>${mybatis.spring.boot.version}</version>
             </dependency>
+            <!--      性能分析插件依赖      -->
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
+                <groupId>p6spy</groupId>
+                <artifactId>p6spy</artifactId>
+                <version>${p6spy}</version>
             </dependency>
+            <!--      Hutool工具包依赖      -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.all}</version>
+            </dependency>
+            <!--      日志框架依赖      -->
             <dependency>
                 <groupId>log4j</groupId>
                 <artifactId>log4j</artifactId>
@@ -99,6 +132,39 @@
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
+            <!--      SpringBoot信息监控客户端      -->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>2.2.4</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${admin.starter.client}</version>
+            </dependency>
+            <!--      接口文档依赖      -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>${springfox.boot.starter}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-models</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger.model}</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -107,6 +173,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
                 <configuration>
                     <fork>true</fork>
                     <addResources>true</addResources>
