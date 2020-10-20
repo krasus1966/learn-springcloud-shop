@@ -39,7 +39,7 @@
         <p6spy>3.9.0</p6spy>
         <hutool.all>5.1.0</hutool.all>
         <log4j.version>1.2.17</log4j.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <lombok.version>1.16.18</lombok.version>
         <springfox.boot.starter>3.0.0</springfox.boot.starter>
         <swagger.model>1.5.21</swagger.model>
